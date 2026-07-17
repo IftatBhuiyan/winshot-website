@@ -1,0 +1,10 @@
+Drop your Windows installer in this folder named exactly:
+
+    WinShot-Setup.exe
+
+That's the file the "Download" button on the site links to
+(downloads/WinShot-Setup.exe).
+
+Prefer hosting the installer elsewhere (e.g. GitHub Releases)?
+Edit the two download links in ../index.html — search for "WinShot-Setup.exe"
+and replace the href with your release URL. You can then delete this folder.

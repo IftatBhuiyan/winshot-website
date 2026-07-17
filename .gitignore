@@ -1,0 +1,9 @@
+# OS cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Installers belong on GitHub Releases, not in the repo
+downloads/*.exe
+downloads/*.msi
+downloads/*.zip
