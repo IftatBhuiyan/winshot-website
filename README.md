@@ -1,32 +1,43 @@
 # WinShot — Website
 
-A single-page marketing / distribution site for the WinShot app.
+A static, multi-page pre-release storefront for the Windows capture application currently using
+`WinShot` as a provisional working name.
 
-## Files
-- `index.html` — the page (all content).
-- `styles.css` — design system + layout.
-- `app.js` — sticky nav, mobile menu, scroll reveals, download guard.
-- `assets/favicon.svg` — browser-tab icon / logo mark.
-- `downloads/` — put your installer here (see below).
+## Current implementation
 
-Everything is self-contained (no build step, no external fonts or CDNs). Just
-open `index.html` locally, or upload the whole folder to any static host.
+- `index.html` is the product landing page.
+- `features.html`, `pricing.html`, `download.html`, `changelog.html`, `support.html`,
+  `manage-license.html`, `faq.html`, `privacy.html`, `terms.html`, `eula.html`, and
+  `refund-policy.html` are the product, commercial, and trust surfaces.
+- `site.css` and `site.js` are the active design and progressive-navigation files.
+- `assets/app-icon.png` and `assets/app-dashboard-preview.jpg` are the current identity and
+  privacy-sanitized product media.
+- `content/claim-register.md` governs factual claims; `content/page-copy-deck.md` governs
+  preview-state copy.
+- `tools/validate-site.mjs` validates the private static surface without adding a package or
+  contacting a network service.
 
-## Wiring the download button
-The **Download** button points at `downloads/WinShot-Setup.exe`.
+There is intentionally no active download, checkout, waitlist form, or license-key input. Do not
+place development or unsigned artifacts in this repository. Public actions remain blocked on name,
+publisher, offer, provider, policy, support, signing, and release-manifest approval.
 
-1. Build your installer and drop it at `downloads/WinShot-Setup.exe`, **or**
-2. Edit the two download links in `index.html` (search for `WinShot-Setup.exe`)
-   to point at your release URL — e.g. a GitHub Releases asset.
+Preview through a local HTTP server using `Setup.md`. Hosting and security-header requirements are
+defined in `Plan.md`.
 
-Until a real file exists there, clicking Download shows a friendly "coming soon"
-note instead of a 404.
+## Inactive historical files
 
-Also update the version / size text (search `Version 1.0` and `~12 MB`).
+`styles.css`, `app.js`, `assets/favicon.svg`, and the `downloads/` marker are retained only as
+unreferenced baseline history. They are not part of the active page dependency graph and must not
+be re-enabled or used as release instructions. A customer download requires the immutable signed
+artifact, manifest facts, approved production origin, and complete release gate described in
+`Plan.md`.
 
-## Publish (free options)
-- **GitHub Pages** — push this folder to a repo, enable Pages on the branch.
-- **Netlify / Cloudflare Pages / Vercel** — drag-and-drop or connect the repo.
-- **Any web host** — upload the folder via FTP; `index.html` is the entry point.
+The preview remains self-contained with no build step, external font, CDN, analytics, or active
+commerce integration. Serve it only through the local HTTP workflow in `Setup.md`; do not upload
+the provisional identity to an arbitrary static host.
 
-No server-side code is required.
+Run the repeatable static gate with:
+
+```powershell
+node .\tools\validate-site.mjs
+```
