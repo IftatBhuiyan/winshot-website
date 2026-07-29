@@ -584,3 +584,8 @@ next action. Never include credentials, license keys, customer data, or private 
 - The corrected stale-governance/DPAPI scan, redacted high-signal credential-pattern scan, all
   JavaScript/static gates, and `git diff --check` passed. Only Git's existing LF-to-CRLF checkout
   notices were emitted.
+- Commit `a3ad06c6fb46d2df06356b330c56d24dc7afa661`
+  (`Commit #2 - Correct public preview privacy governance`) was pushed to `origin/main`; local and
+  remote `main` matched. GitHub Pages initially served the prior cached revision, then returned
+  HTTP 200 with the new bounded DPAPI/current-user disclosure and without the stale unprotected
+  claim at `https://iftatbhuiyan.github.io/winshot-website/privacy.html`.
