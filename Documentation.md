@@ -542,3 +542,45 @@ next action. Never include credentials, license keys, customer data, or private 
 - The first staged `git diff --cached --check` found one extra blank line at EOF in each of
   `Prompt.md`, `Implement.md`, and `robots.txt`. No content or generated artifact was invalid; the
   three whitespace defects are being removed before the validation rerun and commit.
+
+## 2026-07-28 - Public no-commerce preview governance correction started
+
+- Active work package: Milestones 3 and 5 claim governance for the owner-authorized GitHub Pages
+  preview.
+- Scope is limited to correcting the current Windows DPAPI license-storage description, replacing
+  obsolete private/local-only preview governance with an explicit public no-commerce preview
+  boundary, and adding static validator regressions for both classes of drift.
+- Checkout, download, indexing, provisional identity, external resources, forms, and production
+  launch remain fail-closed. No commerce, provider, release artifact, or application-repository
+  state will change.
+
+### Implementation and evidence
+
+- Updated `privacy.html`, `content/claim-register.md`, and `content/page-copy-deck.md` to describe
+  the current license record as protected at rest by Windows DPAPI for the current Windows user.
+  The qualification explicitly states that current-user protection is not a device/seat limit or
+  a boundary against software running as that user.
+- Updated `README.md`, `Prompt.md`, `Plan.md`, and `Setup.md` so the owner-authorized GitHub Pages
+  publication is consistently described as a public no-commerce review preview, not a private
+  local-only site or a commercial launch. Noindex, crawler disallow, provisional identity, disabled
+  checkout/download, and production-hosting gates remain unchanged.
+- Extended `tools/validate-site.mjs` to require the GitHub Pages review boundary, reject obsolete
+  private/local-only preview wording in current governance sources, reject the three stale
+  unprotected-license phrases, and require the bounded current-user DPAPI disclosure in both the
+  public privacy page and claim register.
+- `node --check .\site.js`, `node --check .\tools\validate-site.mjs`,
+  `node .\tools\validate-site.mjs`, and `git diff --check` passed. The static gate reported 13
+  routes, preview indexing preserved, public no-commerce governance passed, zero external
+  resources/forms, complete route/accessibility-source checks, checkout/download disabled, and
+  107,377 first-view bytes against the 1 MiB limit.
+- A loopback-only HTTP check returned 200 for `privacy.html`. The in-app Browser runtime was
+  available but reported no browser binding, so no new rendered screenshot or interaction claim
+  is made. This copy/governance-only change does not alter CSS, active JavaScript, layout, or
+  interactive controls.
+- The first combined final scan failed because it searched `tools/validate-site.mjs` and therefore
+  matched the validator's own forbidden-phrase regular expressions. The static validator itself
+  passed. The source scan is corrected to exclude the validator implementation while the validator
+  continues checking all governed files.
+- The corrected stale-governance/DPAPI scan, redacted high-signal credential-pattern scan, all
+  JavaScript/static gates, and `git diff --check` passed. Only Git's existing LF-to-CRLF checkout
+  notices were emitted.

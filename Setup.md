@@ -28,6 +28,10 @@ or server component. Its implementation files are:
 historical baseline files only. Their old download instructions are explicitly inactive and must
 not be restored. No production download currently exists.
 
+The owner-authorized public review preview is published from the root of `main` at
+`https://iftatbhuiyan.github.io/winshot-website/`. It is intentionally no-commerce and
+non-indexable; GitHub Pages publication is not production storefront approval.
+
 ## Local prerequisites
 
 - Windows, PowerShell, and Git.
@@ -89,7 +93,8 @@ git status --short --branch
 ```
 
 The checked-in validator covers static route, metadata, semantics, ARIA, local-resource, CSP,
-private-indexing, truthful-gate, 320-pixel source-guard, contrast-token, and first-view-budget
+preview-indexing, public no-commerce governance, truthful-gate, 320-pixel source-guard,
+contrast-token, and first-view-budget
 invariants. Rendered keyboard, zoom, screen-reader, forced-colors, browser-diversity, performance,
 and production-header validation remain manual gates. Record the exact tool/version and command
 in `Documentation.md`.
@@ -156,11 +161,12 @@ Do not place unsigned development installers in this repository or its startup p
 evidence is missing, the website must present a waitlist/status state rather than a clickable
 download that can fail.
 
-## Hosting and deployment unknowns
+## Public preview and production-hosting unknowns
 
-No production hosting contract, domain, DNS ownership, canonical origin, preview environment,
-deployment credential, analytics decision, or rollback command is configured in this repository.
-Before deployment, the owner must approve:
+The owner has approved GitHub Pages as a public review host for the no-commerce preview. No
+production hosting contract, domain, DNS ownership, canonical origin, deployment credential,
+analytics decision, or production rollback command is configured in this repository. Before
+commercial deployment, the owner must approve:
 
 - cleared product name, publisher/legal entity, domain, DNS account, and registrar ownership;
 - production host and plan, source integration, preview/prod separation, and access control;

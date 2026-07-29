@@ -85,8 +85,9 @@ remain unapproved until confirmed by the product and commerce owners.
 
 ## Non-goals
 
-- Do not launch publicly, accept payment, buy name-dependent media, or promote the working name
-  before professional name/trademark clearance.
+- Do not present the owner-authorized public no-commerce preview as a commercial product launch,
+  accept payment, buy name-dependent media, or promote the working name before professional
+  name/trademark clearance.
 - Do not publish a purchase or download action until its destination exists and the offered signed
   artifact has passed the application release gate.
 - Do not claim cloud sharing, automatic updates, perpetual updates, a file size, a version,

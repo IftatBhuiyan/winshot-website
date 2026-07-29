@@ -1,7 +1,8 @@
 # WinShot — Website
 
-A static, multi-page pre-release storefront for the Windows capture application currently using
-`WinShot` as a provisional working name.
+A public, no-commerce pre-release storefront for the Windows capture application currently using
+`WinShot` as a provisional working name. It is published for review through GitHub Pages at
+`https://iftatbhuiyan.github.io/winshot-website/`; publication is not commercial launch approval.
 
 ## Current implementation
 
@@ -14,14 +15,17 @@ A static, multi-page pre-release storefront for the Windows capture application 
   privacy-sanitized product media.
 - `content/claim-register.md` governs factual claims; `content/page-copy-deck.md` governs
   preview-state copy.
-- `tools/validate-site.mjs` validates the private static surface without adding a package or
+- `tools/validate-site.mjs` validates the public no-commerce surface without adding a package or
   contacting a network service.
 
 There is intentionally no active download, checkout, waitlist form, or license-key input. Do not
-place development or unsigned artifacts in this repository. Public actions remain blocked on name,
-publisher, offer, provider, policy, support, signing, and release-manifest approval.
+place development or unsigned artifacts in this repository. Commercial actions remain blocked on
+name, publisher, offer, provider, policy, support, signing, and release-manifest approval. The
+public preview retains `noindex, nofollow`, disallows crawlers, and labels the identity and release
+state as provisional.
 
-Preview through a local HTTP server using `Setup.md`. Hosting and security-header requirements are
+Use the local HTTP workflow in `Setup.md` while editing. GitHub Pages is the owner-approved public
+review host; production domain, headers, monitoring, commerce, and rollback requirements remain
 defined in `Plan.md`.
 
 ## Inactive historical files
@@ -33,8 +37,8 @@ artifact, manifest facts, approved production origin, and complete release gate 
 `Plan.md`.
 
 The preview remains self-contained with no build step, external font, CDN, analytics, or active
-commerce integration. Serve it only through the local HTTP workflow in `Setup.md`; do not upload
-the provisional identity to an arbitrary static host.
+commerce integration. Do not mirror the provisional identity to another host or present this
+GitHub Pages review surface as a finished commercial storefront.
 
 Run the repeatable static gate with:
 

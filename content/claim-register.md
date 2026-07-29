@@ -9,7 +9,7 @@ terms supersede source-only evidence for a public release.
 
 ## Status key
 
-- **Preview-safe:** may be used in a private/local preview with the listed qualification.
+- **Preview-safe:** may be used in the public no-commerce preview with the listed qualification.
 - **Release-gated:** implemented in source, but public wording waits for the specified manual,
   hardware, packaging, privacy, or signed-release evidence.
 - **Owner input:** no approved value or policy exists; show an honest unavailable state or omit.
@@ -98,7 +98,7 @@ engineering archives in `../WinShot/Documentation.md`. Manual and signed release
 | P-03 | Recent-history and clipboard backing files stay local. | **Release-gated** | `HistoryService`; capture/editor clipboard folders; `Setup.md`. | Publish exact locations in support/privacy copy only after retention and deletion behavior is validated. Some configured folders may themselves be cloud-synced by the user. |
 | P-04 | WinShot collects no analytics or telemetry. | **Release-gated** | No analytics/telemetry integration was found in current source; the only current network client is an unwired licensing provider client. | Re-scan the final packaged dependency graph and hosting scripts. State the scope precisely; support/provider/website data are separate processing surfaces. |
 | P-05 | The app has zero network access. | **Do not claim** | A Lemon Squeezy client now exists in source, even though it is not wired into the current product. Final licensing/update behavior is undecided. | Describe actual final endpoints and data fields in the privacy policy. |
-| P-06 | License data is encrypted at rest. | **Do not claim** | `LicenseStorage` writes the signed license record locally without Windows-backed at-rest protection. | Add and validate a backward-compatible protection/migration path before making an encryption claim. |
+| P-06 | The locally stored license record is protected at rest for the current Windows user. | **Preview-safe** | `LicenseStorage` protects the record with Windows DPAPI in current-user scope and migrates legacy plaintext records in place. | Explain that this is current-user data protection, not a device or seat limit, and not a boundary against software running as that Windows user. A valid offline key can still be entered on another device. |
 | P-07 | License keys are hardware locked or device-limited. | **Do not claim** | Current offline storage checks local machine identity but the same valid key can be entered elsewhere. | Requires approved provider/device model and tested online enforcement. |
 | P-08 | Uses keyboard/desktop capture integration. | **Release-gated disclosure** | Global hotkeys, keystroke overlay, screen capture, and local machine/user fingerprinting are implemented. | Privacy/EULA/support disclosures must explain purposes, activation conditions, retained data, and user controls without alarmist or vague language. |
 | P-09 | The installer and binaries are digitally signed. | **Do not claim** | Code signing, timestamping, signed installer, and provenance verification are still release blockers. | Publish publisher, signature, checksum, version, size, and immutable URL only from the accepted signed artifact. |

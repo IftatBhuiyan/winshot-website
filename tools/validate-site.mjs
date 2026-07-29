@@ -18,7 +18,7 @@ const pages = [
   "refund-policy.html",
   "404.html",
 ];
-const privateCsp =
+const previewCsp =
   "default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'";
 const errors = [];
 
@@ -139,7 +139,7 @@ for (const [page, source] of pageSources) {
   }
 
   if (!/<meta\s+name="theme-color"\s+content="#0b0b0d"\s*\/?>/i.test(source)) {
-    fail(page, "missing private-preview theme color");
+    fail(page, "missing preview theme color");
   }
   if (!/<meta\s+name="color-scheme"\s+content="dark"\s*\/?>/i.test(source)) {
     fail(page, "missing dark color-scheme declaration");
@@ -152,12 +152,12 @@ for (const [page, source] of pageSources) {
     fail(page, "missing strict referrer policy");
   }
   if (!/<meta\s+name="robots"\s+content="noindex, nofollow"\s*\/?>/i.test(source)) {
-    fail(page, "private preview must remain noindex, nofollow");
+    fail(page, "public no-commerce preview must remain noindex, nofollow");
   }
   const csp = source.match(
     /<meta\s+http-equiv="Content-Security-Policy"\s+content="([^"]+)"\s*\/?>/i,
   )?.[1];
-  if (csp !== privateCsp) fail(page, "missing or unexpected private-preview CSP");
+  if (csp !== previewCsp) fail(page, "missing or unexpected preview CSP");
   if (/<link\b[^>]*\brel="canonical"/i.test(source)) {
     fail(page, "canonical URL must wait for the approved production origin");
   }
@@ -199,7 +199,7 @@ for (const [page, source] of pageSources) {
   for (const match of source.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/gi)) {
     const href = match[1].trim();
     if (/^(?:https?:|\/\/|javascript:|data:)/i.test(href)) {
-      fail(page, `external or executable link is not allowed in the private preview: ${href}`);
+      fail(page, `external or executable link is not allowed in the no-commerce preview: ${href}`);
       continue;
     }
     if (/^(?:mailto:|tel:)/i.test(href)) {
@@ -316,6 +316,53 @@ for (const [page, source] of pageSources) {
 
 const siteCss = fs.readFileSync(path.join(root, "site.css"), "utf8");
 const siteJs = fs.readFileSync(path.join(root, "site.js"), "utf8");
+const governanceFiles = [
+  "README.md",
+  "Prompt.md",
+  "Plan.md",
+  "Setup.md",
+  "content/claim-register.md",
+  "content/page-copy-deck.md",
+  "privacy.html",
+];
+const governanceSources = new Map(
+  governanceFiles.map((file) => [file, fs.readFileSync(path.join(root, file), "utf8")]),
+);
+const readme = governanceSources.get("README.md");
+if (
+  !readme.includes("public, no-commerce pre-release storefront") ||
+  !readme.includes("https://iftatbhuiyan.github.io/winshot-website/") ||
+  !readme.includes("publication is not commercial launch approval")
+) {
+  fail("README.md", "public GitHub Pages no-commerce preview boundary is missing");
+}
+for (const [file, source] of governanceSources) {
+  if (/\b(?:private\/local preview|private preview|selected local preview)\b/i.test(source)) {
+    fail(file, "obsolete private/local-only preview governance found");
+  }
+  if (
+    /\b(?:not currently protected with Windows-backed encryption at rest|without Windows-backed at-rest protection|not currently Windows-encrypted at rest)\b/i.test(
+      source,
+    )
+  ) {
+    fail(file, "stale unprotected-license-record claim found");
+  }
+}
+const privacyCopy = governanceSources.get("privacy.html");
+if (
+  !privacyCopy.includes("Windows DPAPI") ||
+  !privacyCopy.includes("current Windows user") ||
+  !privacyCopy.includes("does not enforce a device or seat limit")
+) {
+  fail("privacy.html", "bounded current-user DPAPI disclosure is missing");
+}
+const claimRegister = governanceSources.get("content/claim-register.md");
+if (
+  !claimRegister.includes("Windows DPAPI in current-user scope") ||
+  !claimRegister.includes("not a device or seat limit")
+) {
+  fail("content/claim-register.md", "current-user DPAPI claim qualification is missing");
+}
 for (const marker of [
   "@media (prefers-reduced-motion: reduce)",
   "@media (forced-colors: active)",
@@ -386,7 +433,7 @@ for (const token of ["iris", "iris-hover"]) {
 
 const robots = fs.readFileSync(path.join(root, "robots.txt"), "utf8").replace(/\r/g, "").trim();
 if (robots !== "User-agent: *\nDisallow: /") {
-  fail("robots.txt", "private preview must disallow all crawling");
+  fail("robots.txt", "public no-commerce preview must disallow all crawling");
 }
 if (fs.existsSync(path.join(root, "sitemap.xml"))) {
   fail("sitemap.xml", "sitemap must wait for the approved production origin");
@@ -421,7 +468,8 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(`PASS_STATIC_SITE pages=${pages.length}`);
-  console.log(`PASS_PRIVATE_INDEXING pages=${pages.length} robots=disallow-all`);
+  console.log(`PASS_PREVIEW_INDEXING pages=${pages.length} robots=disallow-all`);
+  console.log("PASS_PUBLIC_NO_COMMERCE_GOVERNANCE github-pages=review-only");
   console.log(`PASS_STATIC_SECURITY csp=${pages.length} external-resources=0 forms=0`);
   console.log("PASS_ACCESSIBILITY_SOURCE landmarks=headings, aria-refs, image-alt, focus/reflow media");
   console.log("PASS_ROUTE_GRAPH internal-links-and-fragments");

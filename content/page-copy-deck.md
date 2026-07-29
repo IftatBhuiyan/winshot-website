@@ -2,9 +2,10 @@
 
 Last reviewed: 2026-07-28
 
-This is implementation-ready editorial guidance for a private/local preview. It does not authorize
-public launch. `WinShot` is a provisional working token and must remain easy to replace. Text in
-square brackets is an internal instruction or missing owner input, not public copy.
+This is implementation-ready editorial guidance for the public no-commerce GitHub Pages preview.
+It does not authorize a commercial product launch. `WinShot` is a provisional working token and
+must remain easy to replace. Text in square brackets is an internal instruction or missing owner
+input, not public copy.
 
 Claims are governed by `content/claim-register.md`. When the register says **release-gated** or
 **owner input**, the site must use the pending-state copy below or omit the claim.
@@ -607,7 +608,8 @@ must approve the final language and effective date.
 - Local trial timestamps in a file and current-user registry value.
 - A hashed value derived from Windows machine identity and current user for local license/trial
   binding.
-- A locally stored signed license record that is not currently Windows-encrypted at rest.
+- A locally stored license record protected at rest with Windows DPAPI for the current Windows
+  user. This does not enforce a device/seat limit or protect against software running as that user.
 - Privacy-redacted local error log; final retained fields and rotation require release review.
 - Future licensing-provider requests only if online activation is approved and wired.
 

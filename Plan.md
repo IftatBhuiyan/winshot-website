@@ -15,8 +15,10 @@ release gate remains authoritative for claims about product behavior and downloa
 - Milestones 2 and 3: core local implementation and Chromium browser QA complete; remaining
   cross-browser, forced-colors, social/SEO, and production-origin checks are open.
 - Active milestone: Milestone 4 inputs and Milestone 5 hosting/release preparation.
-- Public launch: blocked by name clearance, approved offer terms, signed release evidence, working
-  checkout/order-management destinations, and complete policies.
+- Public review preview: published from `main` to GitHub Pages with no commerce or download,
+  `noindex, nofollow`, crawler disallow, and provisional release/identity warnings.
+- Commercial launch: blocked by name clearance, approved offer terms, signed release evidence,
+  working checkout/order-management destinations, and complete policies.
 
 ## Baseline findings
 
@@ -127,12 +129,12 @@ correct them before website implementation starts.
 - Professional clearance evidence is stored outside the public repository.
 - A repository search shows no obsolete public-facing name or offer terms after migration.
 
-**Rollback condition:** retain a private preview/waitlist state and stop public launch or paid brand
-spend if clearance or commercial terms remain incomplete.
+**Rollback condition:** retain the public no-commerce preview/status state and stop commercial
+launch or paid brand spend if clearance or commercial terms remain incomplete.
 
 ## Milestone 1 — Concept-first visual and content system
 
-**Status:** Complete for the selected local preview direction.
+**Status:** Complete for the selected public no-commerce preview direction.
 
 **Workflow**
 
@@ -267,7 +269,8 @@ provider, policy, signed artifact, or release destination is unavailable or inco
 
 ## Milestone 5 — Production performance, security, and launch
 
-**Status:** Pending; hosting is not selected.
+**Status:** Public review hosting is active on GitHub Pages; production hosting, origin, and launch
+controls remain pending.
 
 **Work packages**
 
