@@ -589,3 +589,10 @@ next action. Never include credentials, license keys, customer data, or private 
   remote `main` matched. GitHub Pages initially served the prior cached revision, then returned
   HTTP 200 with the new bounded DPAPI/current-user disclosure and without the stale unprotected
   claim at `https://iftatbhuiyan.github.io/winshot-website/privacy.html`.
+- The first post-documentation public verification command incorrectly used PowerShell's reserved,
+  read-only `$HOME` variable for the homepage response and stopped before reporting assertions.
+  No repository or remote state changed. The rerun uses a task-specific response variable.
+- The corrected public verification returned HTTP 200 for the homepage and privacy page, found the
+  DPAPI/current-user disclosure, found no stale unprotected-record sentence, and confirmed
+  `noindex, nofollow`, disabled trial, and disabled download states. Local and remote `main`
+  matched before this final documentation-only update.
