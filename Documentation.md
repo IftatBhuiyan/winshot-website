@@ -596,3 +596,27 @@ next action. Never include credentials, license keys, customer data, or private 
   DPAPI/current-user disclosure, found no stale unprotected-record sentence, and confirmed
   `noindex, nofollow`, disabled trial, and disabled download states. Local and remote `main`
   matched before this final documentation-only update.
+
+## 2026-07-29 - GitHub Pages route verification
+
+- Active work package: Milestone 5 public-preview route and deployment verification. The owner
+  asked that the current site remain pushed and reviewable through GitHub Pages.
+- Local and remote `main` both matched
+  `effe46357b161eceaf49d8241efdb804300afd59`, and the website worktree was clean. The homepage
+  returned HTTP 200. A probe of the unimplemented clean URL `/privacy/` returned the custom 404
+  page; the published route previously validated by this repository is `/privacy.html`.
+- The first bounded source-inspection command used a PowerShell double-quoted regex containing
+  unescaped quote characters and stopped at parse time. It produced no route evidence and changed
+  no files; the inspection will be rerun with safe quoting before deciding whether any website
+  change is warranted.
+- The corrected inspection confirmed every published navigation link and the zero-dependency
+  validator intentionally use static `.html` routes; `/privacy/` was never an implemented or linked
+  route. No one-off redirect was added because it would create an inconsistent URL policy. The
+  correct homepage and `/privacy.html` routes both returned HTTP 200, and the live privacy page
+  contained the required Windows DPAPI disclosure.
+- Final validation passed `node --check` for both active JavaScript sources and all static-site
+  gates across 13 routes: preview indexing, no-commerce governance, CSP/no external resources,
+  accessibility source invariants, route graph, truthful disabled checkout/download state, and the
+  107,377-byte first-view budget. `git diff --check` passed with only the existing checkout
+  line-ending notice. This documentation-only follow-up is ready for the next sequential website
+  commit and push.
