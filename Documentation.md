@@ -620,3 +620,57 @@ next action. Never include credentials, license keys, customer data, or private 
   107,377-byte first-view budget. `git diff --check` passed with only the existing checkout
   line-ending notice. This documentation-only follow-up is ready for the next sequential website
   commit and push.
+
+## 2026-08-03 - M4/M5 commerce and domain handoff preparation
+
+- Active work package: audit the authenticated Lemon Squeezy test configuration and prepare the
+  static storefront for later production checkout, license management, signed download, and a
+  founder-purchased custom domain without enabling public commerce prematurely.
+- Target flow: public review homepage -> pricing or license management -> truthful unavailable
+  state until the production offer, fixed provider links, policies, cleared identity, and signed
+  installer are approved; after promotion, those same surfaces must use provider-hosted checkout
+  and My Orders links without placing a secret in browser code.
+- Preserve `noindex, nofollow`, disabled purchase/download controls, and the current GitHub Pages
+  review boundary until the production-origin and release gates pass. Portal inspection and any
+  test identifiers are evidence only; they do not authorize a live CTA.
+
+## 2026-08-03 - M0.5 Relic Screenshot website rebrand
+
+- Active work package: Milestone 0.5 product-name migration across the active public website,
+  metadata, accessible names, editorial controls, README, and durable governance documents.
+- The owner selected the public product name `Relic Screenshot` and explicitly requested the
+  migration proceed. This implementation changes the public brand token but does not represent
+  professional trademark clearance, publisher/legal-identity approval, production-domain
+  approval, or commercial-launch authorization.
+- Scope safeguards: preserve the existing GitHub Pages repository/path, `noindex, nofollow`,
+  crawler disallow, disabled checkout/download states, and unchanged pre-rebrand product media.
+  Do not rename the repository/remote, create assets, or change provider portals in this slice.
+- The first loopback HTTP route probe was rejected by the command-execution policy before a
+  server started, so it produced no route evidence and changed no process or repository state.
+  The rerun will use a bounded background job in the current PowerShell process.
+- Replaced the obsolete public `WinShot` token with `Relic Screenshot` across all 13 active HTML
+  routes, homepage Open Graph/title metadata, brand labels, account copy, footers, and image text
+  alternatives. Existing product media remains byte-for-byte unchanged and is described as a
+  pre-rebrand development build because it visibly contains the old application name.
+- Updated `Prompt.md`, `Plan.md`, `Implement.md`, `Setup.md`, `README.md`,
+  `content/claim-register.md`, and `content/page-copy-deck.md` to record the owner-selected name,
+  legacy repository/path compatibility, and the still-open professional-clearance and commercial
+  release gates. Historical `Documentation.md` entries were preserved.
+- Extended `tools/validate-site.mjs` so every active route must contain `Relic Screenshot` and
+  rejects the obsolete product token. The validator continues to enforce `noindex, nofollow`,
+  crawler disallow, zero external resources/forms, disabled checkout/download, route integrity,
+  accessibility-source invariants, and the first-view budget.
+- `node --check .\site.js`, `node --check .\tools\validate-site.mjs`, and
+  `node .\tools\validate-site.mjs` passed. The static gate reported 13 routes, a 107,526-byte
+  first view against the 1 MiB limit, public no-commerce governance preserved, and checkout and
+  download still disabled. This repository intentionally has no dependency install or build step.
+- The corrected loopback probe returned HTTP 200 and found the selected product name on all 13
+  routes. `git diff --check` passed with only the repository's existing LF-to-CRLF checkout
+  notices.
+- A 1440-pixel Edge headless render visually confirmed the longer brand fits the full desktop
+  navigation. A requested 390-pixel headless screenshot was produced, but Edge's command-line
+  capture did not provide trustworthy exact CSS-viewport evidence; therefore no new mobile reflow
+  claim is made. Existing 320/390 source guards pass, while rendered mobile/browser-diversity,
+  screen-reader, forced-colors, and Core Web Vitals checks remain manual gates.
+- Final scope: no CSS or active JavaScript behavior changed; no asset, repository name, remote,
+  GitHub Pages path, checkout, download, Lemon Squeezy, Azure, or deployment state changed.

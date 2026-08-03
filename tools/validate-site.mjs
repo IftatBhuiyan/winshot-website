@@ -127,6 +127,12 @@ for (const [page, source] of pageSources) {
   )?.[1]?.trim();
   if (!title) fail(page, "missing nonempty title");
   if (!description) fail(page, "missing nonempty description");
+  if (/\bWinShot\b/i.test(source)) {
+    fail(page, "obsolete public product name remains after Relic Screenshot migration");
+  }
+  if (!source.includes("Relic Screenshot")) {
+    fail(page, "selected Relic Screenshot product name is missing");
+  }
   if (title) {
     if (titles.has(title)) fail(page, `duplicates title from ${titles.get(title)}`);
     titles.set(title, page);

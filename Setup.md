@@ -1,6 +1,6 @@
-# WinShot Storefront Setup
+# Relic Screenshot Storefront Setup
 
-Last verified: 2026-07-28 on the current Windows workstation
+Last verified: 2026-08-03 on the current Windows workstation
 
 This file documents reproducible local website work without credentials, customer data, signing
 material, license keys, or private product captures.
@@ -40,8 +40,9 @@ non-indexable; GitHub Pages publication is not production storefront approval.
 - Node.js only for syntax checks or a future reviewed/pinned validation toolchain.
 - Browser developer tools for responsive, network, accessibility, performance, and no-JavaScript
   checks.
-- Product-media work requires a validated WinShot build and synthetic sample content. Never use
-  personal captures or real license/customer data.
+- Product-media work requires a validated Relic Screenshot build from the legacy `WinShot`
+  repository path and synthetic sample content. Never use personal captures or real
+  license/customer data.
 
 Verify tools without installing packages:
 
@@ -168,7 +169,8 @@ production hosting contract, domain, DNS ownership, canonical origin, deployment
 analytics decision, or production rollback command is configured in this repository. Before
 commercial deployment, the owner must approve:
 
-- cleared product name, publisher/legal entity, domain, DNS account, and registrar ownership;
+- professionally cleared product name, publisher/legal entity, domain, DNS account, and registrar
+  ownership;
 - production host and plan, source integration, preview/prod separation, and access control;
 - canonical `www`/apex policy and legacy redirect map;
 - deploy and rollback commands plus the person authorized to use them;
@@ -176,8 +178,8 @@ commercial deployment, the owner must approve:
 - support email/system and privacy/legal policy owner;
 - whether analytics is necessary and, if so, its privacy/consent configuration.
 
-Do not infer these values, deploy to an arbitrary provider, or spend on name-dependent
-infrastructure while name clearance is blocked.
+Do not infer these values, deploy to an arbitrary provider, or treat the owner-selected public
+name as professionally cleared while review is still open.
 
 ## Worktrees and subagents
 

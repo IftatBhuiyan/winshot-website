@@ -1,4 +1,4 @@
-# WinShot Storefront Implementation Rules
+# Relic Screenshot Storefront Implementation Rules
 
 Read `Prompt.md`, `Plan.md`, this file, `Setup.md` when environment, hosting, tools, checkout, or
 deployment are involved, the latest 80 lines of `Documentation.md`, and the source files in scope
@@ -44,8 +44,8 @@ before substantial work.
   support response, refund terms, version, size, checksum, signed status, compatibility,
   performance, privacy, reliability, testimonials, customer counts, ratings, or guarantees.
 - When evidence is missing, use a neutral pending/unavailable state or omit the claim.
-- `WinShot` remains a replaceable working token until professional name clearance. Avoid baking it
-  into raster artwork or duplicating it unnecessarily.
+- `Relic Screenshot` is the owner-selected public token. Keep it maintainable and do not treat the
+  migration as professional trademark clearance or bake unreviewed identity into new raster art.
 - Do not reproduce CleanShot copy, artwork, screenshots, proprietary assets, or exact page
   compositions.
 

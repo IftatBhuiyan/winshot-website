@@ -1,7 +1,7 @@
-# WinShot — Website
+# Relic Screenshot — Website
 
-A public, no-commerce pre-release storefront for the Windows capture application currently using
-`WinShot` as a provisional working name. It is published for review through GitHub Pages at
+A public, no-commerce pre-release storefront for the Windows capture application named
+`Relic Screenshot`. It is published for review through the legacy GitHub Pages repository URL at
 `https://iftatbhuiyan.github.io/winshot-website/`; publication is not commercial launch approval.
 
 ## Current implementation
@@ -20,9 +20,11 @@ A public, no-commerce pre-release storefront for the Windows capture application
 
 There is intentionally no active download, checkout, waitlist form, or license-key input. Do not
 place development or unsigned artifacts in this repository. Commercial actions remain blocked on
-name, publisher, offer, provider, policy, support, signing, and release-manifest approval. The
+professional name clearance, publisher, offer, provider, policy, support, signing, and
+release-manifest approval. The
 public preview retains `noindex, nofollow`, disallows crawlers, and labels the identity and release
-state as provisional.
+state as pre-release. The owner-selected product name does not remove the professional clearance
+gate.
 
 Use the local HTTP workflow in `Setup.md` while editing. GitHub Pages is the owner-approved public
 review host; production domain, headers, monitoring, commerce, and rollback requirements remain
@@ -37,8 +39,9 @@ artifact, manifest facts, approved production origin, and complete release gate 
 `Plan.md`.
 
 The preview remains self-contained with no build step, external font, CDN, analytics, or active
-commerce integration. Do not mirror the provisional identity to another host or present this
-GitHub Pages review surface as a finished commercial storefront.
+commerce integration. Do not mirror the selected identity to another host or present this GitHub
+Pages review surface as a finished commercial storefront before professional clearance and the
+remaining release gates pass.
 
 Run the repeatable static gate with:
 

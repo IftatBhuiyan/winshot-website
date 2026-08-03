@@ -1,11 +1,11 @@
 # Storefront Page Copy Deck
 
-Last reviewed: 2026-07-28
+Last reviewed: 2026-08-03
 
 This is implementation-ready editorial guidance for the public no-commerce GitHub Pages preview.
-It does not authorize a commercial product launch. `WinShot` is a provisional working token and
-must remain easy to replace. Text in square brackets is an internal instruction or missing owner
-input, not public copy.
+It does not authorize a commercial product launch. `Relic Screenshot` is the owner-selected public
+product name; professional clearance and the remaining release gates are still open. Text in
+square brackets is an internal instruction or missing owner input, not public copy.
 
 Claims are governed by `content/claim-register.md`. When the register says **release-gated** or
 **owner input**, the site must use the pending-state copy below or omit the claim.
@@ -62,7 +62,7 @@ Footer groups:
 
 Footer identity line for preview:
 
-> [Working name] is a Windows desktop application in development. Product name, publisher details,
+> Relic Screenshot is a Windows desktop application in development. Publisher details,
 > commercial terms, and release links are not final.
 
 Do not publish a copyright owner, company suffix, address, or jurisdiction until approved.
@@ -71,7 +71,7 @@ Do not publish a copyright owner, company suffix, address, or jurisdiction until
 
 ### Metadata
 
-- Preview title: `[Working name] — Screen capture and recording for Windows`
+- Preview title: `Relic Screenshot — Screen capture and recording for Windows`
 - Preview description: `Capture, annotate, and record from a focused Windows desktop app. Commercial release details are in preparation.`
 - Do not add a canonical URL, Product/Offer schema, price, rating, or availability until the
   production domain and offer are approved.
@@ -283,7 +283,7 @@ Actions:
 
 ### Metadata
 
-- Title: `Features — [Working name]`
+- Title: `Features — Relic Screenshot`
 - Description: `Explore capture, annotation, Quick Access, recording, and tray workflows in the Windows application preview.`
 
 ### Introduction
@@ -529,7 +529,7 @@ Do not backfill a fake v1.0.0 entry from source metadata.
 
 ### Metadata
 
-- Title: `Support — [Working name]`
+- Title: `Support — Relic Screenshot`
 - Description: `Release status and support topics for capture, recording, startup, licensing, and downloads.`
 
 Preview heading:
@@ -559,7 +559,7 @@ Do not render a form that silently sends nowhere.
 
 ### Metadata
 
-- Title: `License help — [Working name]`
+- Title: `License help — Relic Screenshot`
 - Description: `How trial, in-app activation, deactivation, and future order recovery are expected to work.`
 
 Heading:
@@ -733,8 +733,8 @@ Do not invent a number of days.
 Before a page changes from pending to production:
 
 1. Update the applicable claim-register rows.
-2. Replace the working name from a single controlled content source and run a repository-wide
-   obsolete-name search.
+2. Update the selected product name in controlled content sources and run a repository-wide
+   obsolete-public-name search while preserving legacy paths and historical records.
 3. Insert approved owner/provider/legal values; never leave bracketed instructions in public HTML.
 4. Use only real synthetic-data product media or clearly labeled concepts.
 5. Confirm every CTA destination in provider test mode and then production.

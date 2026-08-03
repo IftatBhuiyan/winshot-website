@@ -1,9 +1,9 @@
 # Storefront Claim Register
 
-Last reviewed: 2026-07-28
+Last reviewed: 2026-08-03
 
-This register governs factual claims for the storefront currently using the provisional working
-name `WinShot`. It is an internal editorial control, not public policy text. The desktop repository
+This register governs factual claims for the storefront using the owner-selected public name
+`Relic Screenshot`. It is an internal editorial control, not public policy text. The desktop repository
 at `../WinShot/` is the source of product truth; a signed release manifest and approved commercial
 terms supersede source-only evidence for a public release.
 
@@ -24,7 +24,7 @@ engineering archives in `../WinShot/Documentation.md`. Manual and signed release
 
 | ID | Candidate public claim | Status | Evidence | Required qualification or next proof |
 |---|---|---|---|---|
-| I-01 | The final product is named WinShot. | **Do not claim** | `Prompt.md`; `../WinShot/Prompt.md` | An active overlapping Windows capture product uses the exact name. Treat it only as a replaceable working token pending professional clearance and likely renaming. |
+| I-01 | The selected public product name is Relic Screenshot. | **Preview-safe** | Owner direction recorded in `Documentation.md`; `Prompt.md` | The name replaces WinShot across active public surfaces, but this status does not imply professional trademark clearance or authorize irreversible brand spend. |
 | I-02 | This is a Windows desktop application. | **Preview-safe** | `../WinShot/Directory.Build.props`; `../WinShot/src/WinShot.App/WinShot.App.csproj` | Do not imply macOS, browser, mobile, or cross-platform availability. |
 | I-03 | Requires 64-bit Windows. | **Release-gated** | App project sets `PlatformTarget` to `x64`. | Confirm the packaged artifact, clean install, and exact system-requirements wording. |
 | I-04 | Supports Windows 10 and Windows 11. | **Release-gated** | App manifest declares Windows 10 awareness; target framework is `net8.0-windows10.0.19041.0`. | Resolve the documented mismatch between target/API floor, `SupportedOSPlatformVersion` 10.0.17763.0, and historical Windows 10 1903+ intent. Test the minimum and current supported releases. |
@@ -96,7 +96,7 @@ engineering archives in `../WinShot/Documentation.md`. Manual and signed release
 | P-01 | Captures and edits are processed on the user’s PC. | **Release-gated** | Current capture, editor, OCR, recording, and file-delivery paths are local. | Re-audit the final binary and every network path. Explain separately that licensing may contact a provider. Do not collapse this into “the app never uses the internet.” |
 | P-02 | OCR works offline. | **Preview-safe** | `OcrService` uses Windows’ built-in OCR and installed language packs. | Qualify language-pack availability; final privacy review must confirm no added cloud fallback. |
 | P-03 | Recent-history and clipboard backing files stay local. | **Release-gated** | `HistoryService`; capture/editor clipboard folders; `Setup.md`. | Publish exact locations in support/privacy copy only after retention and deletion behavior is validated. Some configured folders may themselves be cloud-synced by the user. |
-| P-04 | WinShot collects no analytics or telemetry. | **Release-gated** | No analytics/telemetry integration was found in current source; the only current network client is an unwired licensing provider client. | Re-scan the final packaged dependency graph and hosting scripts. State the scope precisely; support/provider/website data are separate processing surfaces. |
+| P-04 | Relic Screenshot collects no analytics or telemetry. | **Release-gated** | No analytics/telemetry integration was found in current source; the only current network client is an unwired licensing provider client. | Re-scan the final packaged dependency graph and hosting scripts. State the scope precisely; support/provider/website data are separate processing surfaces. |
 | P-05 | The app has zero network access. | **Do not claim** | A Lemon Squeezy client now exists in source, even though it is not wired into the current product. Final licensing/update behavior is undecided. | Describe actual final endpoints and data fields in the privacy policy. |
 | P-06 | The locally stored license record is protected at rest for the current Windows user. | **Preview-safe** | `LicenseStorage` protects the record with Windows DPAPI in current-user scope and migrates legacy plaintext records in place. | Explain that this is current-user data protection, not a device or seat limit, and not a boundary against software running as that Windows user. A valid offline key can still be entered on another device. |
 | P-07 | License keys are hardware locked or device-limited. | **Do not claim** | Current offline storage checks local machine identity but the same valid key can be entered elsewhere. | Requires approved provider/device model and tested online enforcement. |
@@ -119,7 +119,8 @@ engineering archives in `../WinShot/Documentation.md`. Manual and signed release
 
 ## Required release evidence before changing a status
 
-1. Cleared name, publisher/legal identity, production domain, and brand migration record.
+1. Professional clearance for the selected name, publisher/legal identity, production domain, and
+   completed brand migration record.
 2. Approved price, currency/tax language, edition, device/activation model, update entitlement,
    refund policy, support promise, privacy policy, terms, and EULA.
 3. Approved Lemon Squeezy store/product/variant IDs and public checkout/order-management URLs, or

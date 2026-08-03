@@ -1,11 +1,11 @@
-# WinShot Storefront Product Prompt
+# Relic Screenshot Storefront Product Prompt
 
-Last reviewed: 2026-07-28
+Last reviewed: 2026-08-03
 
 ## Product goal
 
 Create a commercially credible storefront for the Windows screenshot and recording application
-currently called WinShot. The site must make a careful buyer understand the product, trust the
+named Relic Screenshot. The site must make a careful buyer understand the product, trust the
 publisher, evaluate the trial and one-time purchase, obtain or recover a license, download a
 verified release, and get support without encountering invented claims or dead ends.
 
@@ -29,7 +29,8 @@ design.
   usable without JavaScript.
 - Connect Lemon Squeezy purchase and order-management surfaces only after the exact production
   URLs, product/variant identity, price, license terms, and policy language are approved.
-- Keep name-dependent content replaceable because `WinShot` is a provisional working name.
+- Present `Relic Screenshot` consistently as the owner-selected public product name while keeping
+  brand-dependent content maintainable.
 
 ## Taste and design direction
 
@@ -86,8 +87,8 @@ remain unapproved until confirmed by the product and commerce owners.
 ## Non-goals
 
 - Do not present the owner-authorized public no-commerce preview as a commercial product launch,
-  accept payment, buy name-dependent media, or promote the working name before professional
-  name/trademark clearance.
+  accept payment, buy name-dependent media, or treat the selected name as professionally cleared
+  before name/trademark review is complete.
 - Do not publish a purchase or download action until its destination exists and the offered signed
   artifact has passed the application release gate.
 - Do not claim cloud sharing, automatic updates, perpetual updates, a file size, a version,
@@ -103,9 +104,9 @@ remain unapproved until confirmed by the product and commerce owners.
 
 ## Durable constraints
 
-- `WinShot` is provisional. An active Windows screenshot/annotation product uses the exact name at
-  `https://winshot.org/`, creating direct category-confusion risk. Public launch and irreversible
-  brand spend are blocked pending professional clearance and likely renaming.
+- `Relic Screenshot` is the owner-selected public product name replacing `WinShot`. The migration
+  does not constitute professional trademark clearance; public launch and irreversible brand
+  spend remain blocked pending that review.
 - Every public factual claim needs a source in application code, release evidence, approved
   commercial terms, or provider configuration. Unknowns render as honest pending/unavailable
   states, never plausible filler.

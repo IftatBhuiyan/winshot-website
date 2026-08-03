@@ -1,6 +1,6 @@
-# WinShot Storefront Plan
+# Relic Screenshot Storefront Plan
 
-Last reviewed: 2026-07-28
+Last reviewed: 2026-08-03
 
 This plan is the execution source of truth for the website repository. The desktop application's
 release gate remains authoritative for claims about product behavior and downloadable artifacts.
@@ -17,7 +17,9 @@ release gate remains authoritative for claims about product behavior and downloa
 - Active milestone: Milestone 4 inputs and Milestone 5 hosting/release preparation.
 - Public review preview: published from `main` to GitHub Pages with no commerce or download,
   `noindex, nofollow`, crawler disallow, and provisional release/identity warnings.
-- Commercial launch: blocked by name clearance, approved offer terms, signed release evidence,
+- Owner-selected public rebrand to `Relic Screenshot`: in progress across the application,
+  website, commerce provider, and signing configuration. Professional clearance remains open.
+- Commercial launch: blocked by professional name clearance, approved offer terms, signed release evidence,
   working checkout/order-management destinations, and complete policies.
 
 ## Baseline findings
@@ -38,8 +40,8 @@ release gate remains authoritative for claims about product behavior and downloa
   incomplete.
 - Blue/purple/teal gradients, glow fields, CSS mockups, and repeated equal cards read as a generic
   template rather than the requested restrained, product-led quality.
-- The exact `WinShot` name is already used by an overlapping Windows product; it remains a
-  provisional token throughout the site.
+- `Relic Screenshot` replaces the conflicting `WinShot` public token. The old name remains only
+  in legacy repository paths, URLs, historical records, and unchanged pre-rebrand media.
 
 ## Information architecture
 
@@ -110,23 +112,26 @@ correct them before website implementation starts.
 
 ## Milestone 0.5 — Product name, publisher, and offer decision
 
-**Status:** Blocked on owner and professional legal review.
+**Status:** Owner-selected name approved for migration; professional legal review and remaining
+commercial identity inputs are still open.
 
 **Work packages**
 
-- Clear or replace the provisional product name and approve its legal owner/publisher identity.
+- Migrate the owner-selected product name `Relic Screenshot` and approve its legal
+  owner/publisher identity.
 - Approve domain, support identity, price/currency, tax display, 14-day trial terms, device/seat
   count, activation/deactivation behavior, update entitlement, refund policy, and support promise.
 - Create one replaceable brand-token/content source so a rename does not require scattered edits.
 
 **Acceptance**
 
-- Written approval identifies the cleared name, publisher, production domain, full offer terms,
-  Lemon Squeezy product/variant, and migration scope.
+- Written approval identifies the selected name, publisher, production domain, full offer terms,
+  Lemon Squeezy product/variant, and migration scope; professional clearance evidence separately
+  satisfies the public-launch gate.
 
 **Validation**
 
-- Professional clearance evidence is stored outside the public repository.
+- Professional clearance evidence is stored outside the public repository before launch.
 - A repository search shows no obsolete public-facing name or offer terms after migration.
 
 **Rollback condition:** retain the public no-commerce preview/status state and stop commercial
