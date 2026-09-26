@@ -44,3 +44,6 @@ assets/features/shortcuts.svg
 assets/features/spotlight.svg
 assets/features/steps.svg
 assets/features/timer.svg
+
+landing-concept.css
+assets/stillmark-desk.png

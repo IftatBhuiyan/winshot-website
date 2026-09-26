@@ -33,12 +33,12 @@ if (download && downloadStatus) {
     }).sort((a, b) => Date.parse(b.releasedAt) - Date.parse(a.releasedAt))[0];
     if (!release) throw new Error("No release available");
     const link = document.createElement("a");
-    link.className = "button";
+    link.className = "button download-primary";
     link.href = release.downloadUrl;
-    link.textContent = `Download Stillmark ${release.version}`;
+    link.textContent = "Download for Windows";
     download.replaceWith(link);
     downloadStatus.textContent = `Version ${release.version} · Released ${new Date(release.releasedAt).toLocaleDateString()}`;
-    document.getElementById("download-checksum").textContent = `SHA-256: ${release.sha256}`;
+
   }).catch(() => {
     downloadStatus.textContent = "We couldn’t check download availability. Please refresh or contact support.";
   });
