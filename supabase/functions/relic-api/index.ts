@@ -517,12 +517,14 @@ async function handle(req: Request): Promise<Response> {
     ) || "/";
   })();
   if (path === "/config" && req.method === "GET") {
+    // Validate staging without opening checkout. The owner-controlled switch stays separate.
+    const checkoutReady = !isTestMode && await offerReady() && !!(await signingKey());
     return response(
       {
         authUrl: supabaseUrl,
         publishableKey,
-        checkoutEnabled: !isTestMode && enabled && await offerReady() &&
-          !!(await signingKey()),
+        checkoutEnabled: enabled && checkoutReady,
+        checkoutReady,
         supportEmail: supportEmail || undefined,
         allowedDownloadHosts: allowedDownloadHosts.length
           ? allowedDownloadHosts
