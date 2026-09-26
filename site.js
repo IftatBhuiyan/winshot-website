@@ -56,3 +56,21 @@
 
   if (year) year.textContent = String(new Date().getFullYear());
 })();
+
+(function () {
+  const dropdowns = [...document.querySelectorAll('.nav-dropdown')];
+  function closeOthers(except) { for (const item of dropdowns) if (item !== except) item.open = false; }
+  for (const item of dropdowns) {
+    item.addEventListener('toggle', () => { if (item.open) closeOthers(item); });
+    item.addEventListener('focusout', event => { if (event.relatedTarget && !item.contains(event.relatedTarget)) item.open = false; });
+    item.querySelector('summary').addEventListener('keydown', event => {
+      if (event.key === 'ArrowDown') { event.preventDefault(); item.open = true; closeOthers(item); item.querySelector('a').focus(); }
+    });
+  }
+  document.addEventListener('pointerdown', event => { if (!event.target.closest('.nav-dropdown')) closeOthers(); });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const current = dropdowns.find(item => item.open);
+    if (current) { current.open = false; current.querySelector('summary').focus(); }
+  });
+})();

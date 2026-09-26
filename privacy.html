@@ -1,33 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0d" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'" />
-  <title>Privacy — Relic Screenshot policy in preparation</title>
-  <meta name="description" content="Verified product data surfaces and the status of the pre-release privacy policy." />
+  <title>Privacy policy — Stillmark</title>
+  <meta name="description" content="Stillmark privacy policy describing local captures, account data, activation, providers, and user choices." />
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
   <link rel="stylesheet" href="site.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="shell nav-row"><a class="brand" href="index.html" aria-label="Relic Screenshot home"><img src="assets/app-icon.png" width="30" height="30" alt="" /><span>Relic Screenshot</span></a><a class="button button-small desktop-action" href="index.html">Back to product</a></div></header>
+    <header class="site-header" id="site-header">
+    <div class="shell nav-row">
+      <a class="brand" href="index.html" aria-label="Stillmark home"><img src="assets/app-icon.png" width="40" height="40" alt="" /><span>Stillmark</span></a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <details class="nav-dropdown"><summary>Product <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover">
+          <a class="nav-feature" href="screenshots.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4M8 9h8v6H8z" /></svg></span>Screenshots</a>
+          <a class="nav-feature" href="screen-recording.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3" /></svg></span>Screen recording</a>
+          <div class="nav-divider"></div><a href="features.html">All features</a><a href="changelog.html">Changelog</a><div class="nav-divider"></div><a href="download.html">Download <span aria-hidden="true">↓</span></a>
+        </div></details>
+        <a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a>
+        <details class="nav-dropdown"><summary>Support <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover nav-support"><a href="faq.html">Frequently asked questions</a><a href="support.html">Contact support</a></div></details>
+      </nav>
+      <div class="nav-actions"><a class="nav-login" href="manage-license.html">Your account</a><a class="button button-small nav-buy" href="pricing.html">Buy now</a></div>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile"><a href="screenshots.html">Screenshots</a><a href="screen-recording.html">Screen recording</a><a href="features.html">All features</a><a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a><a href="changelog.html">Changelog</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="support.html">Contact support</a><a href="manage-license.html">Your account</a></nav>
+  </header>
   <main class="subpage-main" id="main">
-    <header class="subpage-hero"><div class="shell"><p class="kicker">Privacy</p><h1>A precise policy, not a broad promise.</h1><p>This page records verified pre-release product behavior. It is not the final privacy policy and needs approval from the responsible publisher and policy owner.</p></div></header>
+    <header class="subpage-hero"><div class="shell"><p class="kicker">Privacy policy</p><h1>Your captures stay on your computer.</h1><p>Effective September 21, 2026. This policy describes the website, account service, and Windows app.</p></div></header>
     <section class="content-section"><div class="shell content-measure">
-      <div class="status-panel"><strong>Policy in preparation</strong><p>Publisher identity, effective date, provider processing, support, website logs, retention, rights, jurisdiction, and contact details are not yet approved.</p></div>
-      <h2>Current product data surfaces</h2>
-      <ul><li>User-selected screen pixels processed for capture, editing, OCR, and recording.</li><li>Optional cursor, click, keystroke, microphone, and system-audio processing when those recording options are enabled.</li><li>Saved screenshots and recordings in a user-chosen folder.</li><li>Bounded local history and clipboard-backing files used by enabled workflows.</li><li>Local settings, trial timestamps, and a machine/user-derived hash used for local trial and license binding.</li><li>A locally stored license record protected at rest with Windows DPAPI for the current Windows user. This protection does not enforce a device or seat limit, and software running as that user may access data the user can access.</li><li>Privacy-redacted local error logs whose final retention policy still needs release review.</li></ul>
-      <h2>Network scope</h2>
-      <p>The current capture workflow has no cloud-upload feature. A provider-validation path exists in source, but the compiled configuration remains in offline signed mode with provider validation disabled. The final policy must document every enabled release endpoint and field separately from local capture processing.</p>
-      <h2>Required before publication</h2>
-      <p>The final policy must document exact locations, retention, deletion and uninstall behavior, website and checkout processing, provider identities, legal bases, international transfers, user rights, security practices, children, changes, and jurisdiction-specific disclosures.</p>
+      <div class="status-panel"><strong>Privacy at a glance</strong><p>Captures are processed locally. Account and activation data support your license. Diagnostic reports are sent only when you choose to send them.</p></div>
+
+      <h2>Who this policy covers</h2>
+      <p>Stillmark is offered by Iftat Bhuiyan, an individual seller in the United States. This policy covers the Stillmark website, the account and license manager, checkout, and the Windows application. It explains what information is handled, why it is needed, and the choices available to you.</p>
+
+      <h2>Information handled by the Windows app</h2>
+      <p>Stillmark is a local capture and recording tool. When you use a feature, it may process:</p>
+      <ul>
+        <li>Screen pixels from the area, window, display, or displays that you choose. OCR and editing operate on that local content.</li>
+        <li>Video, cursor position, click indicators, and keystrokes when you turn on those recording options.</li>
+        <li>System audio or microphone audio when you enable the corresponding recording option and Windows permits it. Audio and any people or speech in it are your responsibility to capture lawfully.</li>
+        <li>Screenshot and recording files that you save in your chosen folder, plus local history copies and metadata such as a file path, capture time, dimensions, and an internal entry identifier.</li>
+        <li>Temporary PNG, MP4, or GIF files used for clipboard, quick access, conversion, or recovery workflows.</li>
+        <li>Settings such as shortcuts, save location, display choices, recent capture area, recording choices, and selected audio device identifiers.</li>
+        <li>Trial and license information stored on the computer. A locally stored license record is protected at rest with Windows DPAPI for the current Windows user. That protection does not enforce a device or seat limit; the commercial v3 activation service separately associates one active Windows computer with a purchase.</li>
+        <li>Privacy-reduced diagnostic information kept locally, such as product and operating-system versions, architecture, timestamps, bounded correlation identifiers, and sanitized error type or method information. The app does not send diagnostics automatically.</li>
+      </ul>
+
+      <h2>What the app does with capture content</h2>
+      <p>The app processes captures, recordings, OCR input, and clipboard output on your Windows computer. The product has no cloud screenshot-upload feature. We do not receive the image, video, audio, OCR text, or clipboard contents through the capture workflow. If you choose to save, copy, share, or send a file to another person or service, that action is controlled by you and the recipient’s practices apply.</p>
+      <p>Local history keeps up to 40 entries. You can remove an entry or clear history in the app. Managed history files are deleted when possible; a file held open by Windows or another application may remain until it can be removed. Temporary clipboard PNGs are purged by the app after roughly 24 hours or when the local count limit is reached. Temporary recording and conversion media is purged by the app after roughly 7 days or when its local count limit is reached. These are app cleanup rules, not a guarantee about copies made by Windows, another application, backup software, or you.</p>
+
+      <h2>Account, activation, and downloads</h2>
+      <p>The account manager uses your email address to send a one-time sign-in code, create or access your account, show your purchase, and manage activation. The browser stores a Supabase authentication session so you can remain signed in; signing out clears that browser session. The account service receives the email address, account identifier, purchase and update dates, license status, and the activation records needed to provide these functions.</p>
+      <p>To enforce the one-computer offer, the Windows app derives a product-specific hash from the computer’s Windows machine identifier. The service stores that hash, the device name you provide or the app supplies, activation and refresh timestamps, and revocation status. The raw Windows machine identifier is not sent by the app. The app attempts an online refresh about once each day; a signed v3 activation can continue offline for a maximum of 30 days after a successful check.</p>
+      <p>Downloads are listed with a release version, release time, download URL, and SHA-256 checksum. The account service does not need your capture content to provide downloads. Payment and checkout information is handled by Stripe under its own terms and privacy notice; the service receives the checkout and payment identifiers, purchaser email, amount, currency, and the product metadata needed to fulfill or reconcile the order.</p>
+
+      <h2>Website and service information</h2>
+      <p>The public pages are designed without advertising trackers or an analytics script. A browser and the hosting, authentication, payment, download, and service providers may still process ordinary connection information such as an IP address, request time, browser or device characteristics, security events, and referring page as part of delivering and protecting their services. Cloudflare hosts this website. The account page uses browser local storage for the authentication session; it is necessary for account features. We do not add advertising cookies or sell personal information. Provider security logs and backups are subject to the provider’s retention practices.</p>
+
+      <h2>Issue reports and support</h2><p>Choosing “Email report” in the app opens a draft in your email application with a diagnostic summary. You review it, add a description, and send it yourself. Stillmark does not send the report automatically or attach captures or raw logs. If you email support, we receive your email address, message, and any attachments you choose to include. We use them to respond and investigate the issue.</p>
+      <h2>Why information is used</h2>
+      <p>Information is used to deliver the website and account service, send requested sign-in messages, process and reconcile purchases, issue and manage licenses, provide eligible downloads and updates, prevent fraud or unauthorized activation, respond to support requests, maintain security, and comply with legal obligations. Capture content remains under your control on your computer and is not used for advertising or model training by the product.</p>
+
+      <h2>Service providers and disclosures</h2>
+      <p>Our current providers are <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a> for website hosting and DNS; <a href="https://supabase.com/privacy">Supabase</a> for accounts, authentication, licensing data, and the account API; <a href="https://resend.com/legal/privacy-policy">Resend</a> for sign-in email delivery; <a href="https://stripe.com/privacy">Stripe</a> for checkout and payments; and <a href="https://policies.google.com/privacy">Google Gmail</a> for support correspondence. Email providers process the recipient address, message content, and delivery information. Payment testing uses Stripe’s sandbox; it does not create a real charge. Information may be processed in the United States or another country where a provider operates, subject to applicable law and the provider’s safeguards.</p>
+
+      <h2>Retention and deletion</h2>
+      <p>Local capture files, recordings, clipboard files, settings, history, diagnostics, license records, and account session records remain until you delete them, the app’s cleanup rules remove eligible temporary files, or the relevant Windows profile or installation is removed. The publisher retains account, purchase, activation, payment, security, and support records only as long as needed for the purposes described above, legal obligations, dispute handling, and security. Account deletion requests are handled through the support email below. Retention depends on whether a record is needed to maintain an active account or continuing license, resolve a support request or dispute, or meet a legal obligation. Deactivation does not delete purchase records. Deleted records may remain in provider backups until those backups expire.</p>
+      <p>You can delete local content in the app or in Windows. You can sign out of the account manager and deactivate a computer there. A request to delete or correct account information can be made through <a href="support.html">Contact support</a> or <a href="mailto:support@getstillmark.com">email support</a>. Deletion may be limited where records must be kept for a transaction, fraud prevention, security, or legal requirement. A refund, account deletion, or deactivation does not delete files you saved outside the app’s managed folders.</p>
+
+      <h2>Your choices and rights</h2>
+      <p>You may choose whether to use account features, enable recording and audio options, save files, copy files to the clipboard, or send diagnostics. You may request access to, correction of, or deletion of personal information held by the publisher, subject to applicable law. You may object to or restrict certain processing where the law provides that right. To make a request, use <a href="support.html">Contact support</a> and include enough information to locate the account; do not send a password, sign-in code, payment card number, capture, recording, or license key unless specifically requested through a verified channel. The publisher will verify requests and respond as required by applicable law. You may also contact the relevant state or federal consumer or privacy regulator.</p>
+
+      <h2>Security</h2>
+      <p>The app uses Windows-protected storage for its local license and desktop account session. Account requests use HTTPS and bearer authentication; private licensing tables are not exposed to anonymous website visitors. No method of storage or transmission is completely secure. Keep your Windows account, browser, and sign-in email secure, and report suspected account or license misuse through <a href="support.html">Contact support</a>.</p>
+
+      <h2>Children</h2>
+      <p>The service is intended for adults who can enter a purchase or account agreement. It is not directed to children, and the publisher does not knowingly solicit personal information from children.</p>
+
+      <h2>Changes and contact</h2>
+      <p>The publisher may update this policy when the product, providers, or legal requirements change. Material changes will be identified on this page with an updated effective date. The available contact paths are <a href="support.html">Contact support</a> and <a href="mailto:support@getstillmark.com">support@getstillmark.com</a>. Any change to the support address will be published here.</p>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="shell footer-bottom"><span>Not a final privacy policy.</span><a href="index.html">Product home</a></div></footer>
+  <footer class="site-footer"><div class="shell footer-bottom"><span>Privacy policy · effective September 21, 2026</span><a href="index.html">Product home</a></div></footer>
+  <script src="site.js"></script>
 </body>
 </html>

@@ -1,0 +1,6 @@
+{
+  "supabaseUrl": "https://kwbjlzozcaeqzdzcexzq.supabase.co",
+  "publishableKey": "sb_publishable_Qz3lClg9_QC8BSPUWiggBQ_EHwlGQHm",
+  "apiUrl": "https://kwbjlzozcaeqzdzcexzq.supabase.co/functions/v1/relic-api",
+  "checkoutEnabled": false
+}

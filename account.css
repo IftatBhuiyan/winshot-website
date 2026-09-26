@@ -1,0 +1,91 @@
+.account-header .desktop-nav { margin-left: 36px; margin-right: auto; }
+.account-header .brand { font-family: var(--display-font); font-size: 25px; font-weight: 400; letter-spacing: -.7px; }
+.account-header .brand img { width: 28px; height: 28px; }
+.account-main { width: min(1060px, calc(100% - 64px)); margin: 64px auto 90px; min-height: 65vh; }
+.account-main h1 { margin: 0 0 10px; font-family: var(--display-font); font-size: clamp(42px, 5vw, 64px); line-height: 1.07; letter-spacing: -2px; font-weight: 500; }
+.account-lead { font-size: 20px; color: var(--ink-muted); margin: 0 0 34px; }
+.account-main h2 { font-family: var(--display-font); font-size: 30px; line-height: 1.2; letter-spacing: -.4px; font-weight: 500; margin: 0 0 10px; }
+.account-main p { max-width: 66ch; }
+.account-note { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+.account-message { padding: 14px 18px; background: var(--surface-raised); border-left: 3px solid var(--focus); margin: 20px 0; color: var(--ink); }
+.account-message[data-kind=error] { border-color: var(--danger); }
+.account-main [hidden], .account-header [hidden] { display: none !important; }
+.account-header .account-email { font-size: 14px; color: var(--ink-muted); overflow: hidden; text-overflow: ellipsis; max-width: 230px; white-space: nowrap; }
+.link-button { color: var(--focus); background: none; border: 0; padding: 10px 12px; border-radius: 5px; font: 500 14px/1.4 var(--body-font); cursor: pointer; text-decoration: none; }
+.link-button:hover { color: var(--ink); background: var(--surface-soft); }
+.link-button:disabled { color: var(--ink-faint); cursor: wait; }
+.signin-layout { display: grid; grid-template-columns: 1fr 400px; align-items: start; gap: 100px; padding: 48px 0 100px; }
+.signin-copy p { max-width: 30ch; }
+.signin-form { padding-top: 7px; }
+.signin-form label { display: block; font-size: 14px; font-weight: 600; margin: 0 0 10px; }
+.signin-form input { display: block; width: 100%; border: 1px solid var(--control-border); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 15px 16px; font: 16px/1.5 var(--body-font); margin-bottom: 18px; }
+.signin-form input[aria-invalid=true] { border-color: var(--danger); }
+.signin-form input[inputmode=numeric] { font: 24px/1.5 Consolas, monospace; letter-spacing: 8px; }
+.signin-form .button { width: 100%; justify-content: center; min-height: 50px; }
+.signin-form .form-secondary { display: flex; justify-content: space-between; align-items: center; margin: 12px -12px; }
+.license-summary { border-top: 1px solid var(--line); padding: 28px 0 30px; display: flex; justify-content: space-between; gap: 32px; }
+.license-summary p { margin: 7px 0; }
+.license-meta { color: var(--ink-muted); margin-bottom: 16px !important; }
+.license-actions { padding-top: 8px; width: 270px; flex-shrink: 0; }
+.license-actions .button { width: 100%; justify-content: center; }
+.account-section { border-top: 1px solid var(--line); padding: 28px 0 26px; }
+.device-row { border: 1px solid var(--line); border-radius: 7px; padding: 18px 20px; margin-top: 22px; display: flex; align-items: center; gap: 24px; background: var(--surface); }
+.device-row svg { color: var(--ink-muted); width: 42px; height: 42px; flex-shrink: 0; }
+.device-row strong { font-size: 17px; font-weight: 600; }
+.device-row p { margin: 2px 0 0; font-size: 14px; color: var(--ink-muted); }
+.device-row button { margin-left: auto; }
+.download-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; margin-top: 22px; }
+.download-table th { text-transform: uppercase; letter-spacing: .06em; color: var(--ink-muted); font-size: 11px; font-weight: 500; }
+.download-table th, .download-table td { padding: 13px 12px; border-bottom: 1px solid var(--line); }
+.download-table a { color: var(--focus); }
+.account-empty { padding: 40px 0; border-top: 1px solid var(--line); }
+.account-empty h2 { margin-bottom: 15px; }
+.account-footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 14px; }
+.account-footer .shell { display: flex; gap: 26px; align-items: center; }
+.account-footer a:first-of-type { color: var(--focus); margin-right: auto; }
+.confirm-dialog { width: min(440px, calc(100% - 32px)); background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); border-radius: 12px; padding: 28px; }
+.confirm-dialog::backdrop { background: #000a; backdrop-filter: blur(3px); }
+.confirm-dialog h2 { font-family: var(--display-font); font-size: 27px; margin: 0 0 15px; }
+.confirm-dialog .action-row { justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.confirm-dialog p { color: var(--ink-muted); font-size: 15px; }
+@media (max-width: 1020px) {
+  .account-header .desktop-nav { display: flex; margin: 0 auto; }
+  .account-header .account-email { display: none; }
+  .account-header .nav-row { gap: 20px; }
+  .signin-layout { gap: 40px; grid-template-columns: 1fr 360px; }
+}
+@media (max-width: 700px) {
+  .account-main { width: calc(100% - 40px); margin: 40px auto 60px; }
+  .account-header .brand { font-size: 20px; letter-spacing: -.6px; }
+  .account-header .desktop-nav { display: none; }
+  .account-header .nav-row { justify-content: space-between; }
+  .signin-layout { display: block; padding: 16px 0 20px; }
+  .signin-copy p { max-width: 35ch; }
+  .signin-form { padding: 20px 0; }
+  .account-lead { font-size: 18px; }
+  .license-summary { display: block; padding-top: 24px; }
+  .license-actions { width: 100%; padding-top: 20px; }
+  .device-row { padding: 16px 12px; gap: 13px; flex-wrap: wrap; }
+  .device-row svg { width: 30px; height: 30px; }
+  .device-row button { margin-left: 31px; }
+  .download-table th, .download-table td { padding: 13px 4px; font-size: 13px; }
+  .account-footer .shell { flex-wrap: wrap; gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .confirm-dialog::backdrop { backdrop-filter: none; } }
+@media (forced-colors: active) { .link-button, .signin-form input, .device-row { border: 1px solid ButtonText; } }
+.account-topline { display: flex; justify-content: flex-end; align-items: center; min-height: 38px; gap: 16px; margin-top: -30px; margin-bottom: 20px; }
+.account-topline .account-email { font-size: 14px; color: var(--ink-muted); overflow-wrap: anywhere; }
+.account-main h1 { font-size: clamp(38px, 4.2vw, 52px); font-weight: 650; letter-spacing: -2px; }
+.account-main h2 { font-size: 27px; font-weight: 630; letter-spacing: -.7px; }
+.account-lead { margin-top: 16px; }
+.signin-layout { border-top: 1px solid var(--line); padding-top: 42px; }
+.signin-copy h2 { font-size: 25px; }
+.signin-copy p { max-width: 35ch; font-size: 16px; }
+.signin-form input { background: var(--canvas); }
+.signin-form .account-note { font-size: 13px; }
+.computer-symbol { position: relative; display: block; width: 33px; height: 23px; border: 2px solid var(--ink-muted); border-radius: 3px; margin-inline: 4px; flex: none; }
+.computer-symbol::after { content: ''; position: absolute; bottom: -6px; left: -6px; width: 41px; height: 2px; background: var(--ink-muted); border-radius: 2px; }
+.download-table thead { background: var(--surface); }
+.license-card + .license-card { margin-top: 40px; }
+#remove-error { color: var(--danger); }
+@media (max-width: 700px) { .account-topline { margin-top: -10px; } .account-main h1 { letter-spacing: -1.5px; } }

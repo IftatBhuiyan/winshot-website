@@ -1,30 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0d" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'" />
-  <title>Support — Relic Screenshot release in preparation</title>
-  <meta name="description" content="Release status and planned help topics for capture, recording, startup, licensing, and downloads." />
+  <title>Support — Stillmark</title>
+  <meta name="description" content="Get help with Stillmark, your account, license, or purchase." />
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
   <link rel="stylesheet" href="site.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="shell nav-row"><a class="brand" href="index.html" aria-label="Relic Screenshot home"><img src="assets/app-icon.png" width="30" height="30" alt="" /><span>Relic Screenshot</span></a><a class="button button-small desktop-action" href="index.html">Back to product</a></div></header>
+    <header class="site-header" id="site-header">
+    <div class="shell nav-row">
+      <a class="brand" href="index.html" aria-label="Stillmark home"><img src="assets/app-icon.png" width="40" height="40" alt="" /><span>Stillmark</span></a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <details class="nav-dropdown"><summary>Product <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover">
+          <a class="nav-feature" href="screenshots.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4M8 9h8v6H8z" /></svg></span>Screenshots</a>
+          <a class="nav-feature" href="screen-recording.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3" /></svg></span>Screen recording</a>
+          <div class="nav-divider"></div><a href="features.html">All features</a><a href="changelog.html">Changelog</a><div class="nav-divider"></div><a href="download.html">Download <span aria-hidden="true">↓</span></a>
+        </div></details>
+        <a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a>
+        <details class="nav-dropdown"><summary>Support <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover nav-support"><a href="faq.html">Frequently asked questions</a><a aria-current="page" href="support.html">Contact support</a></div></details>
+      </nav>
+      <div class="nav-actions"><a class="nav-login" href="manage-license.html">Your account</a><a class="button button-small nav-buy" href="pricing.html">Buy now</a></div>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile"><a href="screenshots.html">Screenshots</a><a href="screen-recording.html">Screen recording</a><a href="features.html">All features</a><a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a><a href="changelog.html">Changelog</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a aria-current="page" href="support.html">Contact support</a><a href="manage-license.html">Your account</a></nav>
+  </header>
   <main class="subpage-main" id="main">
-    <header class="subpage-hero"><div class="shell"><p class="kicker">Support</p><h1>Help that starts with the actual build.</h1><p>Support details and a production contact destination are being prepared with the signed release.</p></div></header>
+    <header class="subpage-hero"><div class="shell"><p class="kicker">Support</p><h1>A little help,<br>when you need it.</h1><p>Questions about the app, your account, or a purchase? Get in touch directly.</p></div></header>
     <section class="content-section"><div class="shell content-measure">
-      <div class="status-panel"><strong>No support form is active</strong><p>Do not submit license keys, captures, recordings, credentials, or personal information through an unapproved channel.</p></div>
-      <h2>Planned self-help topics</h2>
-      <ul><li>A shortcut is already used by another app</li><li>OCR language packs are unavailable</li><li>A protected or elevated window cannot be captured</li><li>A recording audio device is unavailable</li><li>The app is not visible after the dashboard closes</li><li>Launch at sign-in does not start from the installed path</li><li>Find, clear, or change capture history</li><li>Verify an installer signature and checksum</li><li>Activate or remove a local activation</li></ul>
+      <div class="status-panel"><strong>Email support</strong><p><a href="mailto:support@getstillmark.com">support@getstillmark.com</a></p></div>
+      <h2>Report an issue</h2><p>In Stillmark, right-click the tray icon and choose <strong>Report an issue</strong>. Review the diagnostic summary, then choose <strong>Email report</strong>. Add what happened, the steps to reproduce it, and what you expected before sending. Reports go directly to the support email above.</p><p>If you use webmail, copy the summary and paste it into a message. The app does not send reports automatically.</p><h2>What to include</h2>
+      <ul><li>For a purchase or refund: the purchase email and order identifier from your receipt or account.</li><li>For account or activation help: the account email, device name shown in the license manager, and a short description of what happened.</li><li>For a technical issue: the app version, Windows build, steps to reproduce the issue, and the privacy-safe diagnostic summary copied from the app if available.</li></ul>
+      <p>Do not email payment card numbers, sign-in codes, passwords, license keys, screenshots, recordings, or clipboard contents unless the publisher asks through a verified reply. For a refund, send the request within 30 calendar days of purchase; see the <a href="refund-policy.html">Refund Policy</a> for the terms.</p>
+      <h2>Find an answer</h2>
+      <p>The FAQ covers capture shortcuts, recording, History, and running Stillmark in the background. For account access or moving to a new computer, open the license manager.</p>
       <div class="page-actions"><a class="button button-secondary" href="faq.html">Read the FAQ</a><a class="text-link" href="manage-license.html">License help <span aria-hidden="true">→</span></a></div>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="shell footer-bottom"><span>Relic Screenshot public review preview.</span><a href="index.html">Product home</a></div></footer>
+  <footer class="site-footer"><div class="shell footer-bottom"><span>Stillmark public review preview.</span><a href="index.html">Product home</a></div></footer>
+  <script src="site.js"></script>
 </body>
 </html>

@@ -2,6 +2,11 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+node_modules/
+.env
+.env.*
+!.env.example
+supabase/.temp/
 
 # Installers belong on GitHub Releases, not in the repo
 downloads/*.exe

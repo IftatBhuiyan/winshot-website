@@ -1,30 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0d" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'" />
-  <title>Download — Relic Screenshot release in preparation</title>
-  <meta name="description" content="See the commercial release gate and how future Windows downloads will be verified." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'self' https://kwbjlzozcaeqzdzcexzq.supabase.co; img-src 'self'; style-src 'self'; script-src 'self'" />
+  <title>Download Stillmark for Windows</title>
+  <meta name="description" content="Get the signed Stillmark Windows installer, release details, and checksum. Includes a 14-day trial." />
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
   <link rel="stylesheet" href="site.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="shell nav-row"><a class="brand" href="index.html" aria-label="Relic Screenshot home"><img src="assets/app-icon.png" width="30" height="30" alt="" /><span>Relic Screenshot</span></a><a class="button button-small desktop-action" href="index.html">Back to product</a></div></header>
+    <header class="site-header" id="site-header">
+    <div class="shell nav-row">
+      <a class="brand" href="index.html" aria-label="Stillmark home"><img src="assets/app-icon.png" width="40" height="40" alt="" /><span>Stillmark</span></a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <details class="nav-dropdown"><summary>Product <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover">
+          <a class="nav-feature" href="screenshots.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4M8 9h8v6H8z" /></svg></span>Screenshots</a>
+          <a class="nav-feature" href="screen-recording.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3" /></svg></span>Screen recording</a>
+          <div class="nav-divider"></div><a href="features.html">All features</a><a href="changelog.html">Changelog</a><div class="nav-divider"></div><a aria-current="page" href="download.html">Download <span aria-hidden="true">↓</span></a>
+        </div></details>
+        <a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a>
+        <details class="nav-dropdown"><summary>Support <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover nav-support"><a href="faq.html">Frequently asked questions</a><a href="support.html">Contact support</a></div></details>
+      </nav>
+      <div class="nav-actions"><a class="nav-login" href="manage-license.html">Your account</a><a class="button button-small nav-buy" href="pricing.html">Buy now</a></div>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile"><a href="screenshots.html">Screenshots</a><a href="screen-recording.html">Screen recording</a><a href="features.html">All features</a><a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a><a href="changelog.html">Changelog</a><a aria-current="page" href="download.html">Download</a><a href="faq.html">FAQ</a><a href="support.html">Contact support</a><a href="manage-license.html">Your account</a></nav>
+  </header>
   <main class="subpage-main" id="main">
-    <header class="subpage-hero"><div class="shell"><p class="kicker">Download status</p><h1>The signed installer is not available yet.</h1><p>The public download opens only after the production artifact passes the complete Windows release gate.</p></div></header>
+    <header class="subpage-hero"><div class="shell"><p class="kicker">Download</p><h1>Stillmark for Windows.</h1><p>Capture, annotate, and record. Your 14-day trial begins when you first open the app.</p></div></header>
     <section class="content-section"><div class="shell content-measure">
-      <div class="status-panel"><strong>No download is linked from this preview.</strong><p>Repository Debug/Release output and unsigned installers are never customer artifacts.</p></div>
-      <h2>Required release proof</h2>
-      <ul><li>Clean install, first launch, sign-in launch, update, rollback, restart recovery, and uninstall</li><li>Signed and timestamped installer, app, updater, and owned native binaries</li><li>Exact version, release date, supported Windows versions and architecture</li><li>Publisher/signing identity, byte size, SHA-256 checksum, and immutable URL</li><li>Release notes plus signature and checksum verification instructions</li></ul>
+      <div class="status-panel"><button class="button" type="button" id="download-button" disabled>Available at launch</button><p id="download-status" aria-live="polite">The public download will open at launch.</p><p id="download-checksum"></p></div>
+      <h2>Already have Stillmark?</h2>
+      <p>Use Settings → About to check for updates included with your license. Stillmark asks before downloading and restarting. If you need to reinstall with the installer, save your work and choose Quit Stillmark from the system tray first.</p>
+      <h2>Before you install</h2>
+      <p>The installer is for 64-bit Intel and AMD Windows computers. It includes the application runtime and installs the Microsoft Visual C++ runtime if needed.</p>
+      <p>In the installer’s Properties → Digital Signatures, the publisher is Iftat Bhuiyan. You can compare the file’s SHA-256 checksum with the value above before running it.</p>
       <div class="page-actions"><a class="button button-secondary" href="changelog.html">Follow release status</a></div>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="shell footer-bottom"><span>No public artifact is available.</span><a href="index.html">Product home</a></div></footer>
+  <footer class="site-footer"><div class="shell footer-bottom"><span>Stillmark for Windows.</span><a href="index.html">Product home</a></div></footer>
+  <script src="site.js"></script>
+  <script type="module" src="assets/storefront.bundle.js"></script>
 </body>
 </html>

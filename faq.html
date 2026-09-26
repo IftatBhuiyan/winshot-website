@@ -1,39 +1,58 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0d" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'" />
-  <title>FAQ — Relic Screenshot preview</title>
+  <title>FAQ — Stillmark preview</title>
   <meta name="description" content="Direct answers about the current Windows capture application and its release status." />
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
   <link rel="stylesheet" href="site.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="shell nav-row"><a class="brand" href="index.html" aria-label="Relic Screenshot home"><img src="assets/app-icon.png" width="30" height="30" alt="" /><span>Relic Screenshot</span></a><a class="button button-small desktop-action" href="index.html">Back to product</a></div></header>
+    <header class="site-header" id="site-header">
+    <div class="shell nav-row">
+      <a class="brand" href="index.html" aria-label="Stillmark home"><img src="assets/app-icon.png" width="40" height="40" alt="" /><span>Stillmark</span></a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <details class="nav-dropdown"><summary>Product <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover">
+          <a class="nav-feature" href="screenshots.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4M8 9h8v6H8z" /></svg></span>Screenshots</a>
+          <a class="nav-feature" href="screen-recording.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3" /></svg></span>Screen recording</a>
+          <div class="nav-divider"></div><a href="features.html">All features</a><a href="changelog.html">Changelog</a><div class="nav-divider"></div><a href="download.html">Download <span aria-hidden="true">↓</span></a>
+        </div></details>
+        <a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a>
+        <details class="nav-dropdown"><summary>Support <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover nav-support"><a aria-current="page" href="faq.html">Frequently asked questions</a><a href="support.html">Contact support</a></div></details>
+      </nav>
+      <div class="nav-actions"><a class="nav-login" href="manage-license.html">Your account</a><a class="button button-small nav-buy" href="pricing.html">Buy now</a></div>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile"><a href="screenshots.html">Screenshots</a><a href="screen-recording.html">Screen recording</a><a href="features.html">All features</a><a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a><a href="changelog.html">Changelog</a><a href="download.html">Download</a><a aria-current="page" href="faq.html">FAQ</a><a href="support.html">Contact support</a><a href="manage-license.html">Your account</a></nav>
+  </header>
   <main class="subpage-main" id="main">
-    <header class="subpage-hero"><div class="shell"><p class="kicker">FAQ</p><h1>Questions, answered plainly.</h1><p>These answers distinguish what exists in the current build from what still needs release validation or owner approval.</p></div></header>
+    <header class="subpage-hero"><div class="shell"><p class="kicker">FAQ</p><h1>Questions, answered plainly.</h1><p>These answers describe the preview and the details still being finalized before launch.</p></div></header>
     <section class="content-section"><div class="shell content-measure faq-list">
-      <details open><summary>Can I buy or download it now?</summary><p>Not from this preview. Checkout and download remain unavailable until the offer, policies, provider journey, signed installer, and release validation are complete.</p></details>
-      <details><summary>What can I capture?</summary><p>The current application supports selected areas, windows, the current monitor, all monitors, timers, repeated areas, and text capture. Scrolling capture remains in release validation.</p></details>
+      <details open><summary>Can I buy or download it now?</summary><p>Not from this preview. Purchase and download remain unavailable until the offer, policies, signed installer, and final release checks are complete.</p></details>
+      <details><summary>What can I capture?</summary><p>The current application supports selected areas, windows, the current monitor, all monitors, timers, repeated areas, and text capture. Scrolling capture is planned and still being checked.</p></details>
       <details><summary>What formats are supported?</summary><p>Screenshots save as PNG or JPEG. Recording paths produce MP4 or convert a recording to GIF. Final codec and compatibility details will come from the release candidate.</p></details>
       <details><summary>Can I annotate a capture?</summary><p>The editor includes arrows, lines, shapes, freehand marks, highlights, text, numbered steps, blur, pixelation, spotlight, crop, undo, and redo.</p></details>
       <details><summary>Does text capture need the cloud?</summary><p>The current OCR implementation uses Windows OCR language packs installed on the PC. Available languages depend on Windows configuration.</p></details>
       <details><summary>Does it upload screenshots or recordings?</summary><p>No cloud upload or hosted share-link feature exists in the current application. The final privacy policy will separately describe licensing, support, checkout, and website processing.</p></details>
       <details><summary>Where are captures stored?</summary><p>Saved files go to the folder selected in settings. When enabled, recent-history and clipboard workflows also use bounded local backing files.</p></details>
-      <details><summary>Can it start with Windows and stay in the tray?</summary><p>The app has launch-at-sign-in and tray-first behavior. Those workflows are still being validated from a stable installed path across updates and Windows session changes.</p></details>
-      <details><summary>Which Windows versions are supported?</summary><p>The current application is a 64-bit Windows desktop build. The exact minimum and fully tested Windows versions will be published after compatibility validation.</p></details>
-      <details><summary>How does the trial work?</summary><p>The current app implements a 14-day trial, then requires a valid license for capture and recording. Final public terms will be published before release.</p></details>
-      <details><summary>How many computers can use one license?</summary><p>The device and activation policy is not final. The current offline key mechanism must not be described as enforcing a device limit.</p></details>
-      <details><summary>Are updates included?</summary><p>The update entitlement is not final. A one-time purchase does not automatically mean lifetime updates.</p></details>
+      <details><summary>Can it start with Windows and stay in the tray?</summary><p>Launch-at-sign-in and tray behavior are being tested across supported Windows versions and session changes before launch.</p></details>
+      <details><summary>Which Windows versions are supported?</summary><p>The current application is a 64-bit Windows desktop build. The exact minimum and fully tested Windows versions will be published after compatibility checks are complete.</p></details>
+      <details><summary>How does the trial work?</summary><p>Your 14-day trial starts when you first open Stillmark. No account or payment card is required. After 14 days, a valid license is required for capture and recording. Reinstalling the app does not restart an existing trial.</p></details>
+      <details><summary>How many computers can use one license?</summary><p>One computer per license. To move, deactivate the old computer in your account, sign in to Stillmark on the new computer, and choose “Activate this computer.” You do not need access to the old computer to deactivate it. An offline computer learns about deactivation at its next successful check; its existing offline access lasts at most 30 days.</p></details>
+      <details><summary>Is an account required?</summary><p>No account is needed for the trial. Sign in with your purchase email to activate a paid license and manage your computer. Account sign-in is available now; paid activation will open with the production release.</p></details>
+      <details><summary>Are updates included?</summary><p>Yes. The $30 USD one-time offer includes one year of updates from purchase. Eligible releases remain usable permanently after that period. There is no subscription or automatic renewal; any future renewal would require a new purchase.</p></details>
+      <details><summary>What is the refund policy?</summary><p>Every paid license includes a 30-day money-back guarantee. Email <a href="mailto:support@getstillmark.com">support@getstillmark.com</a> within 30 days of purchase, for any reason. Include your purchase email. See the <a href="refund-policy.html">refund policy</a> for the full process.</p></details>
       <details><summary>Can it capture every protected or elevated window?</summary><p>No universal guarantee is possible. Windows security boundaries, UAC, DRM, and protected content can limit capture.</p></details>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="shell footer-bottom"><span>Relic Screenshot public review preview.</span><a href="support.html">Support status</a></div></footer>
+  <footer class="site-footer"><div class="shell footer-bottom"><span>Stillmark public review preview.</span><a href="support.html">Support status</a></div></footer>
+  <script src="site.js"></script>
 </body>
 </html>

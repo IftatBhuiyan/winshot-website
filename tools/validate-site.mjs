@@ -11,6 +11,8 @@ const pages = [
   "changelog.html",
   "faq.html",
   "support.html",
+  "screenshots.html",
+  "screen-recording.html",
   "manage-license.html",
   "privacy.html",
   "terms.html",
@@ -20,6 +22,14 @@ const pages = [
 ];
 const previewCsp =
   "default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'";
+const accountCsp =
+  "default-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'self' https://kwbjlzozcaeqzdzcexzq.supabase.co; img-src 'self'; style-src 'self'; script-src 'self'";
+const approvedSupportEmail = "mailto:support@getstillmark.com";
+const providerPrivacyNotices = new Set([
+  "https://www.cloudflare.com/privacypolicy/", "https://supabase.com/privacy",
+  "https://resend.com/legal/privacy-policy", "https://stripe.com/privacy",
+  "https://policies.google.com/privacy",
+]);
 const errors = [];
 
 function fail(file, message) {
@@ -47,6 +57,15 @@ function plainText(markup) {
     .replace(/&(?:gt|#62);/gi, ">")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function canonicalCsp(value) {
+  return String(value ?? "")
+    .split(";")
+    .map((directive) => directive.trim().replace(/\s+/g, " "))
+    .filter(Boolean)
+    .sort()
+    .join(";");
 }
 
 function localTarget(currentPage, rawReference) {
@@ -96,6 +115,33 @@ function imageDimensions(filePath) {
       offset += 2 + segmentLength;
     }
   }
+
+  if (
+    bytes.length >= 20 &&
+    bytes.subarray(0, 4).toString("ascii") === "RIFF" &&
+    bytes.subarray(8, 12).toString("ascii") === "WEBP"
+  ) {
+    const chunk = bytes.subarray(12, 16).toString("ascii");
+    if (chunk === "VP8X" && bytes.length >= 30) {
+      return {
+        width: 1 + bytes[24] + (bytes[25] << 8) + (bytes[26] << 16),
+        height: 1 + bytes[27] + (bytes[28] << 8) + (bytes[29] << 16),
+      };
+    }
+    if (chunk === "VP8 " && bytes.length >= 30) {
+      const frame = 20;
+      if (
+        bytes[frame + 3] === 0x9d &&
+        bytes[frame + 4] === 0x01 &&
+        bytes[frame + 5] === 0x2a
+      ) {
+        return {
+          width: bytes.readUInt16LE(frame + 6) & 0x3fff,
+          height: bytes.readUInt16LE(frame + 8) & 0x3fff,
+        };
+      }
+    }
+  }
   return null;
 }
 
@@ -128,10 +174,10 @@ for (const [page, source] of pageSources) {
   if (!title) fail(page, "missing nonempty title");
   if (!description) fail(page, "missing nonempty description");
   if (/\bWinShot\b/i.test(source)) {
-    fail(page, "obsolete public product name remains after Relic Screenshot migration");
+    fail(page, "obsolete public product name remains after Stillmark migration");
   }
-  if (!source.includes("Relic Screenshot")) {
-    fail(page, "selected Relic Screenshot product name is missing");
+  if (!source.includes("Stillmark")) {
+    fail(page, "selected Stillmark product name is missing");
   }
   if (title) {
     if (titles.has(title)) fail(page, `duplicates title from ${titles.get(title)}`);
@@ -144,11 +190,21 @@ for (const [page, source] of pageSources) {
     descriptions.set(description, page);
   }
 
-  if (!/<meta\s+name="theme-color"\s+content="#0b0b0d"\s*\/?>/i.test(source)) {
-    fail(page, "missing preview theme color");
+  const themeColor = source.match(
+    /<meta\s+name="theme-color"\s+content="([^"]+)"\s*\/?>/i,
+  )?.[1];
+  if (!themeColor || !/^#[0-9a-f]{6}$/i.test(themeColor)) {
+    fail(page, "missing valid theme color");
   }
-  if (!/<meta\s+name="color-scheme"\s+content="dark"\s*\/?>/i.test(source)) {
-    fail(page, "missing dark color-scheme declaration");
+  const colorScheme = source.match(
+    /<meta\s+name="color-scheme"\s+content="([^"]+)"\s*\/?>/i,
+  )?.[1]?.trim();
+  if (
+    !colorScheme ||
+    !colorScheme.split(/\s+/).every((token) => token === "light" || token === "dark") ||
+    colorScheme.split(/\s+/).length > 2
+  ) {
+    fail(page, "missing valid color-scheme declaration");
   }
   if (
     !/<meta\s+name="referrer"\s+content="strict-origin-when-cross-origin"\s*\/?>/i.test(
@@ -163,7 +219,10 @@ for (const [page, source] of pageSources) {
   const csp = source.match(
     /<meta\s+http-equiv="Content-Security-Policy"\s+content="([^"]+)"\s*\/?>/i,
   )?.[1];
-  if (csp !== previewCsp) fail(page, "missing or unexpected preview CSP");
+  const expectedCsp = ["pricing.html", "download.html"].includes(page) || page === "manage-license.html" && /<form\b/i.test(source)
+    ? accountCsp
+    : previewCsp;
+  if (canonicalCsp(csp) !== canonicalCsp(expectedCsp)) fail(page, "missing or unexpected preview CSP");
   if (/<link\b[^>]*\brel="canonical"/i.test(source)) {
     fail(page, "canonical URL must wait for the approved production origin");
   }
@@ -204,12 +263,15 @@ for (const [page, source] of pageSources) {
 
   for (const match of source.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/gi)) {
     const href = match[1].trim();
+    if (page === "privacy.html" && providerPrivacyNotices.has(href)) continue;
     if (/^(?:https?:|\/\/|javascript:|data:)/i.test(href)) {
       fail(page, `external or executable link is not allowed in the no-commerce preview: ${href}`);
       continue;
     }
     if (/^(?:mailto:|tel:)/i.test(href)) {
-      fail(page, `unapproved contact link is not allowed: ${href}`);
+      if (href.toLowerCase() !== approvedSupportEmail) {
+        fail(page, `unapproved contact link is not allowed: ${href}`);
+      }
       continue;
     }
     const { targetPage, fragment } = localTarget(page, href);
@@ -286,8 +348,17 @@ for (const [page, source] of pageSources) {
     }
   }
 
-  if (/<(?:form|iframe|object|embed|base)\b/i.test(source)) {
-    fail(page, "forms, frames, embedded objects, and base URL mutation are not allowed");
+  if (/<(?:iframe|object|embed|base)\b/i.test(source)) {
+    fail(page, "frames, embedded objects, and base URL mutation are not allowed");
+  }
+  if (/<form\b/i.test(source)) {
+    if (page !== "manage-license.html") {
+      fail(page, "forms are only allowed on the managed license page");
+    }
+    for (const match of source.matchAll(/<form\b([^>]*)>/gi)) {
+      if (/\baction\s*=/i.test(match[1])) fail(page, "managed license forms must not submit to a document URL");
+      if (!/\bmethod\s*=\s*"post"/i.test(match[1])) fail(page, "managed license forms must use POST semantics");
+    }
   }
   if (/\son[a-z]+\s*=/i.test(source)) fail(page, "inline event handler found");
   if (/<style(?:\s|>)/i.test(source)) fail(page, "inline style block found");
@@ -296,10 +367,13 @@ for (const [page, source] of pageSources) {
   }
   if (/\btarget\s*=\s*"_blank"/i.test(source)) fail(page, "unexpected new-window target");
 
-  for (const match of source.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)) {
-    const label = plainText(match[1]).toLowerCase();
+  for (const match of source.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)) {
+    const label = plainText(match[2]).toLowerCase();
     if (/^(?:buy now|purchase now|download now|start free trial)$/.test(label)) {
-      fail(page, `actionable gated CTA "${label}" is linked`);
+      const href = attribute(`<a ${match[1]}>`, "href")?.trim() ?? "";
+      const targetPage = href ? localTarget(page, href).targetPage : "";
+      const pricingLink = label === "buy now" && targetPage === "pricing.html";
+      if (!pricingLink) fail(page, `actionable gated CTA "${label}" is linked`);
     }
   }
   for (const match of source.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/gi)) {
@@ -445,13 +519,81 @@ if (fs.existsSync(path.join(root, "sitemap.xml"))) {
   fail("sitemap.xml", "sitemap must wait for the approved production origin");
 }
 
+const indexSource = pageSources.get("index.html") ?? "";
+const eagerIndexImages = [...indexSource.matchAll(/<img\b[^>]*>/gi)]
+  .map((match) => ({
+    loading: attribute(match[0], "loading"),
+    source: attribute(match[0], "src"),
+  }))
+  .filter(({ loading, source }) => source && loading?.toLowerCase() !== "lazy")
+  .map(({ source }) => localTarget("index.html", source).targetPage);
 const firstViewFiles = new Set([
   "index.html",
   "site.css",
   "site.js",
   "assets/app-icon.png",
-  "assets/app-dashboard-preview.jpg",
+  ...eagerIndexImages,
 ]);
+
+const publicationAllowlistPath = path.join(root, "tools", "publish-allowlist.txt");
+const publicationScriptPath = path.join(root, "tools", "publish-static.ps1");
+if (!fs.existsSync(publicationScriptPath)) {
+  fail("tools/publish-static.ps1", "static publication script is missing");
+}
+if (!fs.existsSync(publicationAllowlistPath)) {
+  fail("tools/publish-allowlist.txt", "static publication allowlist is missing");
+} else {
+  const publicationAllowlist = new Set(
+    fs
+      .readFileSync(publicationAllowlistPath, "utf8")
+      .split(/\r?\n/)
+      .map((line) => line.replace(/#.*/, "").trim())
+      .filter(Boolean),
+  );
+  const requiredPublicationFiles = [
+    ...pages,
+    "robots.txt",
+    "site.css",
+    "site.js",
+    "assets/app-icon.png",
+    "assets/editor-showcase.webp",
+    "assets/capture-source.webp",
+    "assets/capture-annotated.webp",
+    "assets/capture-finished.webp",
+    "assets/capture-thumbnail.webp",
+  ];
+  for (const file of requiredPublicationFiles) {
+    if (!publicationAllowlist.has(file)) {
+      fail("tools/publish-allowlist.txt", `active publication file is missing: ${file}`);
+    }
+  }
+  const forbiddenPublicationFiles = [
+    "README.md",
+    "Prompt.md",
+    "Plan.md",
+    "Setup.md",
+    "Implement.md",
+    "Documentation.md",
+    "app.js",
+    "styles.css",
+    "assets/favicon.svg",
+    "assets/social-preview-private.png",
+    "assets/app-dashboard-preview.jpg",
+    "downloads/PUT-INSTALLER-HERE.txt",
+    "tools/validate-site.mjs",
+    "tools/publish-allowlist.txt",
+  ];
+  for (const file of forbiddenPublicationFiles) {
+    if (publicationAllowlist.has(file)) {
+      fail("tools/publish-allowlist.txt", `historical, private, or tooling file is listed: ${file}`);
+    }
+  }
+  for (const file of publicationAllowlist) {
+    if (/^(?:content|tools)\//i.test(file) || /\.(?:exe|msi|msix|zip|key|pfx|pem)$/i.test(file)) {
+      fail("tools/publish-allowlist.txt", `non-customer file type or directory is listed: ${file}`);
+    }
+  }
+}
 const firstViewBytes = [...firstViewFiles].reduce(
   (total, file) => total + fs.statSync(path.join(root, file)).size,
   0,
@@ -480,6 +622,7 @@ if (errors.length > 0) {
   console.log("PASS_ACCESSIBILITY_SOURCE landmarks=headings, aria-refs, image-alt, focus/reflow media");
   console.log("PASS_ROUTE_GRAPH internal-links-and-fragments");
   console.log("PASS_TRUTHFUL_GATES checkout=disabled download=disabled support-matrix=pending");
+  console.log("PASS_STATIC_PUBLICATION_ALLOWLIST active-pages-and-assets-only");
   console.log(`PASS_FIRST_VIEW_BUDGET bytes=${firstViewBytes} limit=1048576`);
   console.log(
     `INFO_SOCIAL_PREVIEW ${fs.existsSync(socialPreview) ? "ready-unwired-pending-production-origin" : "absent"}`,

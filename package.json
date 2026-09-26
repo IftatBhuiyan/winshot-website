@@ -1,0 +1,12 @@
+{
+  "name": "relic-screenshot-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/account.js src/storefront.js --bundle --minify --format=esm --target=es2022 --outdir=assets --entry-names=[name].bundle",
+    "dev": "node tools/serve.mjs",
+    "check": "node tools/validate-site.mjs"
+  },
+  "dependencies": { "@supabase/supabase-js": "2.116.0" },
+  "devDependencies": { "esbuild": "0.28.2" }
+}

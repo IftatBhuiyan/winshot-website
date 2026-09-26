@@ -1,30 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0d" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self'; style-src 'self'; script-src 'self'" />
-  <title>Changelog — Relic Screenshot preview</title>
-  <meta name="description" content="Commercial release notes will appear here after the first signed build." />
+  <title>Changelog — Stillmark</title>
+  <meta name="description" content="What is new in Stillmark 1.0, currently in release preparation." />
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
   <link rel="stylesheet" href="site.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="shell nav-row"><a class="brand" href="index.html" aria-label="Relic Screenshot home"><img src="assets/app-icon.png" width="30" height="30" alt="" /><span>Relic Screenshot</span></a><a class="button button-small desktop-action" href="index.html">Back to product</a></div></header>
+    <header class="site-header" id="site-header">
+    <div class="shell nav-row">
+      <a class="brand" href="index.html" aria-label="Stillmark home"><img src="assets/app-icon.png" width="40" height="40" alt="" /><span>Stillmark</span></a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <details class="nav-dropdown"><summary>Product <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover">
+          <a class="nav-feature" href="screenshots.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4M8 9h8v6H8z" /></svg></span>Screenshots</a>
+          <a class="nav-feature" href="screen-recording.html"><span class="nav-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3" /></svg></span>Screen recording</a>
+          <div class="nav-divider"></div><a href="features.html">All features</a><a aria-current="page" href="changelog.html">Changelog</a><div class="nav-divider"></div><a href="download.html">Download <span aria-hidden="true">↓</span></a>
+        </div></details>
+        <a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a>
+        <details class="nav-dropdown"><summary>Support <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-popover nav-support"><a href="faq.html">Frequently asked questions</a><a href="support.html">Contact support</a></div></details>
+      </nav>
+      <div class="nav-actions"><a class="nav-login" href="manage-license.html">Your account</a><a class="button button-small nav-buy" href="pricing.html">Buy now</a></div>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile"><a href="screenshots.html">Screenshots</a><a href="screen-recording.html">Screen recording</a><a href="features.html">All features</a><a href="pricing.html">Pricing</a><a href="manage-license.html">License manager</a><a aria-current="page" href="changelog.html">Changelog</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="support.html">Contact support</a><a href="manage-license.html">Your account</a></nav>
+  </header>
   <main class="subpage-main" id="main">
-    <header class="subpage-hero"><div class="shell"><p class="kicker">Changelog</p><h1>No public release yet.</h1><p>This page will list shipped, signed releases—not plans, source metadata, or unfinished work.</p></div></header>
+    <header class="subpage-hero"><div class="shell"><p class="kicker">Changelog</p><h1>Every detail, improving.</h1><p>New features, refinements, and fixes for Stillmark.</p></div></header>
     <section class="content-section"><div class="shell content-measure">
-      <div class="status-panel"><strong>Current status</strong><p>Product UX, lifecycle, editor, media conversion, licensing, and deterministic unsigned packaging are being validated. Installer, signing, updates, and clean-machine release proof remain open.</p></div>
-      <h2>What a release entry will include</h2>
-      <ul><li>Version and release date from the signed release manifest</li><li>Added, improved, and fixed behavior</li><li>Known limitations</li><li>Security or privacy notes where relevant</li><li>Signed download and verification instructions</li></ul>
-      <p>Source changes are not a commercial release. There is intentionally no fabricated v1.0 entry.</p>
+      <div class="status-panel"><strong>1.0 · Release preparation</strong><p>Updated September 21, 2026. The 1.0.0 engineering installer is signed and its signature verified. The public release date and download will appear here after production activation, downloads, and updates are ready.</p></div>
+      <h2>Capture, then carry on.</h2>
+      <ul><li>Capture an area, window, display, or all displays. Use a timer or scrolling capture when needed.</li><li>Annotate with arrows, text, shapes, highlights, blur, and numbered steps. Copy, save, pin, or drag the result into another app.</li><li>Record your screen and capture text using Windows OCR.</li><li>Reopen recent captures from History, and keep Stillmark ready in the tray.</li><li>Try the app for 14 days from first launch, without a payment card or account.</li></ul>
+      <h2>Support within reach</h2><p>Choose “Report an issue” from the tray menu to review a diagnostic summary and open an email draft. You decide what to include and when to send it.</p>
+      <h2>Before the public release</h2><p>Account sign-in and sandbox checkout are available for testing. Sandbox licenses cannot activate the released app. Public paid activation, eligible downloads, and the production update feed are not yet available. Stillmark checks for updates when configured and asks before downloading and restarting.</p>
+      <p><a href="download.html">Download status</a> · <a href="support.html">Report an issue</a></p>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="shell footer-bottom"><span>Relic Screenshot public review preview.</span><a href="index.html">Product home</a></div></footer>
+  <footer class="site-footer"><div class="shell footer-bottom"><span>Stillmark public review preview.</span><a href="index.html">Product home</a></div></footer>
+  <script src="site.js"></script>
 </body>
 </html>
