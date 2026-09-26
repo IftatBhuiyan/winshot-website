@@ -288,6 +288,9 @@ async function rpc(
 ): Promise<Record<string, unknown>[]> {
   if (!db) throw new ApiError(503, "Account service is unavailable.");
   const { data, error } = await db.rpc(name, args);
+  if (error?.code === "P0002" && name === "relic_activate_license") {
+    throw new ApiError(409, "This license is in use on another computer.");
+  }
   if (error) throw new ApiError(500, "Account operation failed.");
   return rows(data);
 }

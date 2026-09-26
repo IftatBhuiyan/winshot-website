@@ -137,7 +137,7 @@ $('sign-out').addEventListener('click', async () => {
 });
 
 function eligibleReleases(license, releases) {
-  if (license.status !== 'paid') return [];
+  if (!['paid', 'complimentary'].includes(license.status)) return [];
   const cutoff = new Date(license.updatesUntil).getTime();
   return releases.filter(release => {
     const released = new Date(release.releasedAt).getTime();
@@ -154,20 +154,20 @@ function renderLicense(license, releases) {
   const article = el('article', undefined, 'license-card');
   const summary = el('div', undefined, 'license-summary');
   const details = el('div');
-  details.append(el('h2', license.isTest ? 'Your Stillmark test license' : 'Your Stillmark license'), el('p', license.isTest ? 'Sandbox license · No real payment' : 'One computer · One-time purchase', 'license-meta'));
+  details.append(el('h2', license.isTest ? 'Your Stillmark test license' : 'Your Stillmark license'), el('p', license.isTest ? 'Sandbox license · No real payment' : license.status === 'complimentary' ? 'One computer · Complimentary license' : 'One computer · One-time purchase', 'license-meta'));
   if (license.isTest) details.append(el('p', 'For integration testing only. This license cannot activate the released app.', 'account-note'));
-  details.append(el('p', `Purchased ${date(license.purchasedAt)}`, 'account-note'), el('p', `Updates included until ${date(license.updatesUntil)} (UTC)`, 'account-note'));
+  details.append(el('p', `${license.status === 'complimentary' ? 'Granted' : 'Purchased'} ${date(license.purchasedAt)}`, 'account-note'), el('p', `Updates included until ${date(license.updatesUntil)} (UTC)`, 'account-note'));
   const available = eligibleReleases(license, releases);
   const actions = el('div', undefined, 'license-actions');
   if (available.length) actions.append(downloadLink(available[0], 'Download for Windows', 'button'));
-  else actions.append(el('p', license.status === 'paid' ? 'Your eligible downloads will appear here when a release is available.' : 'This license is currently inactive. Contact support if you need help.', 'account-note'));
+  else actions.append(el('p', ['paid', 'complimentary'].includes(license.status) ? 'Your eligible downloads will appear here when a release is available.' : 'This license is currently inactive. Contact support if you need help.', 'account-note'));
   actions.append(el('p', 'Eligible versions are yours to keep. No automatic renewal.', 'account-note'));
   summary.append(details, actions);
   article.append(summary);
   const computers = el('section', undefined, 'account-section');
   computers.append(el('h2', 'Your computer'));
   const devices = Array.isArray(license.devices) ? license.devices : [];
-  if (!devices.length) computers.append(el('p', license.status === 'paid' ? 'No computer activated yet. Open Stillmark on your Windows computer and sign in to activate it.' : 'There are no active computers on this license.', 'account-note'));
+  if (!devices.length) computers.append(el('p', ['paid', 'complimentary'].includes(license.status) ? 'No computer activated yet. Open Stillmark on your Windows computer and sign in to activate it.' : 'There are no active computers on this license.', 'account-note'));
   for (const device of devices) {
     const row = el('div', undefined, 'device-row');
     const icon = el('span', undefined, 'computer-symbol'); icon.setAttribute('aria-hidden', 'true');
